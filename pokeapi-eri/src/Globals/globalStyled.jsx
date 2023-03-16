@@ -22,12 +22,12 @@ export const GlobalStyled = createGlobalStyle`
         --light-Normal: #BF9762;
         
 
-        --badge-Poison: #AD61AE;
-        --badge-Flying: #6892B0;
-        --badge-Normal: #8A8A8A;
-        --badge-Bug: #316520;
-        --badge-Fire: #F44900;
-        --badge-Water: #33A4F5;
+        --badge-poison: #AD61AE;
+        --badge-flying: #6892B0;
+        --badge-normal: #8A8A8A;
+        --badge-bug: #316520;
+        --badge-fire: #F44900;
+        --badge-water: #33A4F5;
 
         --white-default: #FFFF;
     }
