@@ -13,6 +13,8 @@ export const GlobalStyled = createGlobalStyle`
 
 
         --shadow-card01: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+        
+        --bg-All: #5D5D5D;
         --light-Grass: #729F92;
         --light-Fire: #EAAB7D;
         --light-Water: #33A4F5;
@@ -29,4 +31,9 @@ export const GlobalStyled = createGlobalStyle`
 
         --white-default: #FFFF;
     }
+
+    
+ul, li{
+list-styled-type: none;
+}
 `
