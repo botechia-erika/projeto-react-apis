@@ -1,31 +1,29 @@
 import React from "react"
 import styled from "styled-components"
-
+import bgCard from '../../assets/bg/bgCard.png'
 export const PokemonItem = styled.div`
-display: flex;
-flex-flow: column wrap;
+display:inline-block;
 width: 440px;
 height: 260px; 
 color: white;
-margin: 33px auto;
+background-color: ((pokemon.data.types[0].type)=>{props.pokemon.data.types[0].type});
 border: 2px solid black ;
 border-radius:22px;
-
+box-shadow: var(--shadow-card02);
+background: ${(props) => props.bgCard};
+margin-top: 110px;
 img{
-  position:  relative;
-  align-self:  flex-end;
-  max-height: 224px;
-  min-width: 210px;
-  max-width: 420px ;
-  top: 16px;
-  right: -10%;
+  position: relative;
+  max-width: 240px;
+  max-width: 240px ;
   object-fit: cover ;
-  position: center;
+  padding-bottom: 76px;
+  left: calc(100% - 250px);
+  right: 0;
+  top: -67px;
 }
 
-ul, li{
-list-styled-type: none;
-}
+
 
 `
 

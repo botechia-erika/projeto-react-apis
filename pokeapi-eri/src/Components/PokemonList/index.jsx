@@ -6,10 +6,15 @@ import { DivContainer } from "./styled"
 import { PokeItem } from "../PokeItem/index"
 
 export function PokemonList(){
-    
-  const URL_API = ('https://pokeapi.co/api/v2/')
+  const [pagina, setPagina] = useState(1)
+
+const [itemsPage, setItemsPage] = useState([3])
+
+
+
+const URL_API = ('https://pokeapi.co/api/v2/')
+  
   const [pokemons , setPokemons] = useState([])
-  const [colorBadge, setColorBadge]=useState("")
   
   const showColor = ()=>{
   setColorBadge(`var(--badge-${item.data.toLowerCase()})`)

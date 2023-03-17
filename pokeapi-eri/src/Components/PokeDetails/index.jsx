@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import axios, { Axios } from 'axios'
 import {useEffect,  useState} from 'react'
-
+import {Spinner} from '@chakra-ui/react' 
 export const PokeDetails = () => {
 const [dataPokemon, setDataPokemon] = useState({})
 const [loader, setLoader] = useState(true)
@@ -17,18 +17,38 @@ const resId  = await axios.get(  URL_API_Details + pokeId)
 
   useEffect(() => {
         fetchId()
-
+      
 }, [])
-console.log(pokeId)  
+
   return (
 
     <div>
-        { loader ? (
-            <h1> {dataPokemon.name} </h1>
+        {
+        loader ? ( 
+          
+       
+          <div>
+          <main class="display-1" id="d1">
+  <article class="card">
+          <h2>{dataPokemon.name}</h2>
+       
+        
+            <p>NAO REQUER Conhecimentos Previos de Programacao</p>
+        
+
+</article>
+</main>
+           </div>
             )
             : 
             (
-            <h2>Carregando</h2>
+              <Spinner
+              thickness='6px'
+              speed='0.65s'
+              emptyColor='gray.200'
+              color='blue.500'
+              size='600px'
+            />
             )
         }
     </div>
