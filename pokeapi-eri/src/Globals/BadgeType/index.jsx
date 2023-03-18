@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 import styled from "styled-components";
 
 const BadgeCtn = styled.div`
@@ -33,15 +33,15 @@ align-self: flex-end;
 justify-content: flex-start;
 align-items: center;
 `
-export function BadgeType({TypePokemon}){
+export function BadgeType({item.type, ReturnCardColor, ReturnPokemonType}){
     <div>
-    <BadgeCtn colorBadge={TypePokemon.colorBadge}>
+    <BadgeCtn colorBadge={ReturnCardColor(item.type)}>
     <IconBadge>
-        {TypePokemon.icon}
+        {ReturnPokemonType(item.type)}
     </IconBadge>
     <TextBadge>
-        {TypePokemon.name}
+        {pokemon.name}
     </TextBadge>
     </BadgeCtn>
     </div>
-}
+}*/

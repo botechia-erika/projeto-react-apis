@@ -39,6 +39,7 @@ const URL_API = ('https://pokeapi.co/api/v2/')
   {pokemons.map(pokemon=>(
 
 <PokeItem pokemon={pokemon}/>
+
   
 ))}
 

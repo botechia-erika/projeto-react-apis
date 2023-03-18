@@ -30,10 +30,10 @@ return(
       width="220px"
       />
       </Title>
-      <button>
+      <Button>
 <Link to={'/pokedex'}>
   MyPokedex
-</Link></button>
+</Link></Button>
 </MenuBox>
 </>
 )

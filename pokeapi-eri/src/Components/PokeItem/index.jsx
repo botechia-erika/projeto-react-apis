@@ -19,7 +19,9 @@ return(
   )}
   </p>     
    <img src={pokemon.data.sprites.other['dream_world']['front_default']} alt="pokemon img"/>  
+   <Button>
 <Link to={'/pokemons/' + pokemon.data.id}>+INFO</Link>
+</Button>
 </PokemonItem>
 
 

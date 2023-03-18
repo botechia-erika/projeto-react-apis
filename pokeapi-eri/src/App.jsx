@@ -1,24 +1,21 @@
 import React from 'react';
 import {Routes , Route} from 'react-router-dom'
 import   './Globals/normalize.css'
-import { ChakraProvider, Switch } from '@chakra-ui/react'
-import { Badge } from '@chakra-ui/react'
-import {useTimeout} from './hooks/useTimeout'
+import { ChakraProvider } from '@chakra-ui/react'
 
-import styled from 'styled-components';
 
 import {GlobalStyled} from './Globals/globalStyled';
 import {HeaderNavbar} from './Components/HeaderNavbar/index'
-import { PokemonList } from './Components/PokemonList';
-import { PokeDetails } from './Components/PokeDetails';
-import { useCaptureUsername } from './hooks/useCaptureName';
-import Hero from './Globals/Hero';
+import { PokemonList } from './Components/PokemonList/index';
+import { PokeDetails } from './Components/PokeDetails/index';
+import {Hero} from './Globals/Hero/index';
 
 function App() {
-  return (
-    <div className="App">
-    <GlobalStyled/> 
-<ChakraProvider>
+  return (  <div className="App">
+  <ChakraProvider>    <GlobalStyled/> 
+
+  
+
    <HeaderNavbar/>
    <Routes>
     <Route path="/" element={<Hero/>} />
@@ -27,8 +24,8 @@ function App() {
     <Route path="/pokedex/:idUsername" element={<h1>USER POKEDEX</h1>}/>
     </Routes>
 
-    </ChakraProvider>
-</div>
+    
+</ChakraProvider></div>
   );
 }
 

@@ -9,7 +9,7 @@ display: flex;
     align-self: space-around;
     justify-content: space-around;
     width: 100%;
-    background-color: var(--primary-id);
+    background: var(--gradient-Nav);
     border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;

@@ -6,7 +6,6 @@ display:inline-block;
 width: 440px;
 height: 260px; 
 color: white;
-background-color: ((pokemon.data.types[0].type)=>{props.pokemon.data.types[0].type});
 border: 2px solid black ;
 border-radius:22px;
 box-shadow: var(--shadow-card02);

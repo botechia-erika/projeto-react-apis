@@ -38,6 +38,9 @@ export const GlobalStyled = createGlobalStyle`
         --badge-water: #33A4F5;
 
         --white-default: #FFFF;
+
+
+        --gradient-Nav: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(1,123,243,1) 94%, rgba(0,91,255,1) 100%);
     }
 
     
