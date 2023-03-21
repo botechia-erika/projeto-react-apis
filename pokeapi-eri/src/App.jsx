@@ -9,24 +9,22 @@ import {HeaderNavbar} from './Components/HeaderNavbar/index'
 import { PokemonList } from './Components/PokemonList/index';
 import { PokeDetails } from './Components/PokeDetails/index';
 import {Hero} from './Globals/Hero/index';
+import { PokeSearch } from './Components/PokeSearch';
 
 function App() {
-  return (  <div className="App">
-  <ChakraProvider>    <GlobalStyled/> 
-
-  
-
+  return ( 
+  <ChakraProvider>   
+     <GlobalStyled/>  <div className="App">
    <HeaderNavbar/>
    <Routes>
     <Route path="/" element={<Hero/>} />
-    <Route path="/pokemons" element={<PokemonList/>}/>
-    <Route path="/pokemons/:pokeId" element={<PokeDetails/>}/>   
+    <Route path="/pokemons" element={<PokemonList />}/>
+    <Route path="/pokemons/:pokeName" element={<PokeDetails/>}/>   
+    <Route path="/search" element={<PokeSearch/>}/>   
     <Route path="/pokedex/:idUsername" element={<h1>USER POKEDEX</h1>}/>
-    </Routes>
+    </Routes>    </div>
 
-    
-</ChakraProvider></div>
-  );
+</ChakraProvider>  );
 }
 
 export default App;

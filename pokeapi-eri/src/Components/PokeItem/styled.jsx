@@ -5,7 +5,7 @@ export const PokemonItem = styled.div`
 display:inline-block;
 width: 440px;
 height: 260px; 
-color: white;
+color: #000000;
 border: 2px solid black ;
 border-radius:22px;
 box-shadow: var(--shadow-card02);

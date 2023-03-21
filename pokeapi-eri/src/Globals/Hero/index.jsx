@@ -39,12 +39,12 @@ import {
                 _hover={{
                   bg: 'red.500',
                 }}>
-                <Link to="/Pokedex">
+                <Link to="/pokedex">
                 myPokedexApi
                  </Link> 
               </Button>
               <Button rounded={'full'}>
-                <Link to="/Pokemons">
+                <Link to="/pokemons/">
              Caçar Pokemons
                  </Link> 
               </Button>
