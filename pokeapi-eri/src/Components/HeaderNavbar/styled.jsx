@@ -7,16 +7,17 @@ display: flex;
     padding-left: 2rem;
     padding-right: 2rem;
     align-self: space-around;
+    align-items: center;
     justify-content: space-around;
     width: 100%;
-    background: var(--gradient-Nav);
+    background: var(--gradient-nav);
     border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
     border: 2px solid rgb(0, 0, 0);
-
+margin-bottom: 50px;
 align-content: flex-end;
 `
 

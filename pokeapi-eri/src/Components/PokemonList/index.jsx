@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 import axios from  'axios'
 import { DivContainer } from "./styled"
 import Pokeball  from "../../assets/pngwing.png"
-import { Paginnation } from "../../Globals/Paginnation";
+import { Paginnation } from "../../components/Paginnation";
       import {
         Heading,
         Avatar,
@@ -23,7 +23,7 @@ import { Paginnation } from "../../Globals/Paginnation";
       } from '@chakra-ui/react';
       
       export function PokemonList(){
-      
+      const [posts, setPosts] = useState([])
       const pokeball1= Pokeball
       
       const URL_API = ('https://pokeapi.co/api/v2/')

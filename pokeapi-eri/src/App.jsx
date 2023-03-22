@@ -1,30 +1,30 @@
 import React from 'react';
 import {Routes , Route} from 'react-router-dom'
-import   './Globals/normalize.css'
+import   './theme/normalize.css'
 import { ChakraProvider } from '@chakra-ui/react'
 
 
-import {GlobalStyled} from './Globals/globalStyled';
-import {HeaderNavbar} from './Components/HeaderNavbar/index'
-import { PokemonList } from './Components/PokemonList/index';
-import { PokeDetails } from './Components/PokeDetails/index';
-import {Hero} from './Globals/Hero/index';
-import { PokeSearch } from './Components/PokeSearch';
-
+import {GlobalStyled} from './theme/globalStyled';
+import {HeaderNavbar} from './components/HeaderNavbar/index'
+import { PokemonList } from './components/PokemonList/index';
+import { PokeDetails } from './components/PokeDetails/index';
+import {Hero} from './components/Hero/index';
+import { PokeSearch } from './components/PokeSearch';
+import {PokeDexHome}from './pages/PokedexHome'
 function App() {
-  return ( 
+  return ( <div className="App">
   <ChakraProvider>   
-     <GlobalStyled/>  <div className="App">
+     <GlobalStyled/>  
    <HeaderNavbar/>
    <Routes>
     <Route path="/" element={<Hero/>} />
     <Route path="/pokemons" element={<PokemonList />}/>
     <Route path="/pokemons/:pokeName" element={<PokeDetails/>}/>   
     <Route path="/search" element={<PokeSearch/>}/>   
-    <Route path="/pokedex/:idUsername" element={<h1>USER POKEDEX</h1>}/>
-    </Routes>    </div>
+    <Route path="/pokedex" element={<PokeDexHome/>}/>
+    </Routes>    
 
-</ChakraProvider>  );
+</ChakraProvider></div>  );
 }
 
 export default App;

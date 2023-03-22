@@ -20,7 +20,7 @@ export const GlobalStyled = createGlobalStyle`
         /*border radius*/
         --rounded-23: 23px;
         
-        
+        --bg-API:  linear-gradient(180deg, #FF0000 0%, #882727 59.9%);
         --bg-All: #5D5D5D;
         --primary-id: #DC0A2D;
         --secondary-id: #F9CF30;
@@ -51,11 +51,13 @@ export const GlobalStyled = createGlobalStyle`
         --badge-STEEL: #2A4950;
                 --white-default: #FFFF;
 
-
-        --gradient-Nav: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(1,123,243,1) 94%, rgba(0,91,255,1) 100%);
+        --gradient-nav: linear-gradient(135deg, #e83a68 0%, #cd004e 100%);
+        --gradient-BG: linear-gradient(90deg, #c5c5c5 0%, #c5c5cb 35%, #d9d9d9 94%, #bfc1c4 100%);
     }
 
-
+.App{
+    background: var(--gradient-BG);
+}
 ul, li{
 margin: 5px 20px;
 list-style-type: none;

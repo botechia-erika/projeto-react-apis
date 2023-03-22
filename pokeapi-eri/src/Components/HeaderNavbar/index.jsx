@@ -1,18 +1,14 @@
-import {
-    Menu,
-    Box,
-    Heading,
-    Flex, 
-    Spacer,
-    Button,
-    Center
-  } from '@chakra-ui/react'
+import { Link } from 'react-router-dom';
 
 import {MenuBox , Title
 } from './styled';
 import LogoNav from '../../assets/LogoNav.png'
-import { Link } from 'react-router-dom';
 
+import {
+
+    Button,
+    Center
+  } from '@chakra-ui/react'
 
 
 export function HeaderNavbar(){
@@ -20,7 +16,7 @@ const Logo = LogoNav
 return(
   <>
   
-<MenuBox>
+<MenuBox >
 
 
     <Title>
