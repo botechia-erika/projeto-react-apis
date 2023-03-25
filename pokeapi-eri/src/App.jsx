@@ -11,19 +11,18 @@ import { PokeDetails } from './components/PokeDetails/index';
 import {Hero} from './components/Hero/index';
 import { PokeSearch } from './components/PokeSearch';
 import {PokeDexHome}from './pages/PokedexHome'
+import { AppRouter } from '../router/AppRouter';
 function App() {
-  return ( <div className="App">
+  
+  
+  return ( 
+  <div className="App">
   <ChakraProvider>   
      <GlobalStyled/>  
-   <HeaderNavbar/>
-   <Routes>
-    <Route path="/" element={<Hero/>} />
-    <Route path="/pokemons" element={<PokemonList />}/>
-    <Route path="/pokemons/:pokeName" element={<PokeDetails/>}/>   
-    <Route path="/search" element={<PokeSearch/>}/>   
-    <Route path="/pokedex" element={<PokeDexHome/>}/>
-    </Routes>    
 
+  <AppRouter/>     
+
+  <HeaderNavbar/>
 </ChakraProvider></div>  );
 }
 

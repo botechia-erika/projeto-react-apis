@@ -56,6 +56,8 @@ export const GlobalStyled = createGlobalStyle`
     }
 
 .App{
+    padding-top: 100px;
+    padding: 100px auto;
     background: var(--gradient-BG);
 }
 ul, li{

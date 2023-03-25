@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import {MenuBox , Title
+import {MenuBox , Title,HeaderNavImg
 } from './styled';
 import LogoNav from '../../assets/LogoNav.png'
 
@@ -20,7 +20,7 @@ return(
 
 
     <Title>
-      <img
+      <HeaderNavImg
       src={Logo}
       alt="img logo"
       width="220px"

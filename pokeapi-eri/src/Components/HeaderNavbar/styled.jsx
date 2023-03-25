@@ -1,15 +1,19 @@
 import React from "react"
 import styled from "styled-components"
+
 export const MenuBox = styled.nav`
-display: flex;
+position: fixed; display: flex;   width: 90%;
+top: 0;
+margin: 0px 5%;
+
 min-height: 80px;
 display: flex;
     padding-left: 2rem;
     padding-right: 2rem;
-    align-self: space-around;
+    align-self: center;
     align-items: center;
     justify-content: space-around;
-    width: 100%;
+
     background: var(--gradient-nav);
     border-radius: 15px;
     -webkit-border-radius: 15px;
@@ -17,7 +21,6 @@ display: flex;
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
     border: 2px solid rgb(0, 0, 0);
-margin-bottom: 50px;
 align-content: flex-end;
 `
 
@@ -30,4 +33,9 @@ align-self: flex-start;
 text-align: center;
 justify-content: center;
 
+`
+export const  HeaderNavImg = styled.img`
+height: 100%;
+object-fit: contain;
+margin-top: auto;
 `
