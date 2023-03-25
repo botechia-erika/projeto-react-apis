@@ -41,7 +41,7 @@ export function Pokedex(){
     return(
         <>
         <Button7>
-<Link to="/list">
+<Link to="/list/0">
   Lista
 </Link>
 

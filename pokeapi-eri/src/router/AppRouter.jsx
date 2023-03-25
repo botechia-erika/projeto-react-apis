@@ -12,7 +12,7 @@ export const AppRouter = () => {
    
          <Routes>
     <Route path="/" element={<LandingPage/>} />
-    <Route path="/list" element={<List />}/>
+    <Route path="/list/:pNum" element={<List />}/>
     <Route path="/pokemons/:pokeName" element={<Details/>}/>   
     <Route path="/search" element={<Search/>}/>   
     <Route path="/pokedex" element={<Pokedex/>}/>

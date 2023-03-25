@@ -63,7 +63,7 @@ border-radius: 14px;
                  </Link> 
               </Button>
               <Button rounded={'full'}>
-                <Link to="/list/">
+                <Link to="/list/1">
              Caçar Pokemons
                  </Link> 
               </Button>

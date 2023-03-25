@@ -1,14 +1,13 @@
 import React from "react"
 import  {useEffect} from 'react';
 import {  useState } from 'react'
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import axios from  'axios'
 import { DivContainer } from "./styled"
 import Pokeball  from "../../assets/pngwing.png"
-import { Paginnation } from "../../components/Paginnation";
       import {
         Heading,
-        Avatar,
+      ButtonGroup, WrapItem, 
         Box,
         Center,
         Image,
@@ -23,19 +22,24 @@ import { Paginnation } from "../../components/Paginnation";
       } from '@chakra-ui/react';
       
       export function PokemonList(){
-      const [posts, setPosts] = useState([])
-      const pokeball1= Pokeball
+     const {pNum} = useParams()    
+     
+     const [currentPage, setCurrentPage] = useState(pNum)
+const [totalPerPage, setTotalPerPage] = useState(6)
+const [offsetPerPage, setOffsetPerPage] = useState(0)
+        const pokeball1= Pokeball
       
       const URL_API = ('https://pokeapi.co/api/v2/')
         
         const [pokemons , setPokemons] = useState([])
 
         const requestPokemon = async()=>{
-          const response = await axios.get(URL_API + 'pokemon?limit=175&offset=0')
+          const response = await axios.get(URL_API + `pokemon?limit=${totalPerPage}&offset=${currentPage * 3}`)
           Promise.all(
             response.data.results.map(pokemon=>axios.get(pokemon.url))).then(data=>{setPokemons(data)})
             
-        }
+
+          }
         
         
           useEffect(()=>{
@@ -48,7 +52,34 @@ import { Paginnation } from "../../components/Paginnation";
           return(   
       <>
       <Container w={'100%'}>
-      <Paginnation/>
+      <ButtonGroup>
+
+<WrapItem>
+  <Link colorScheme='red' shadow={`var(--shadow-ArrowBtn)`}
+
+to={`/list/Number${Number(pNum)}${Number(-1)})}`}
+  > 
+  Anterior
+   </Link>
+</WrapItem>
+<WrapItem>
+  <Box bg='var(--white-default)' width={'7rem'} height={'2.3rem'} shadow={`var(--shadow-ArrowBtn)`}
+  textAlign={'center'} padding={'1.4'}
+  >
+  <p>
+{currentPage}
+  </p>
+  </Box>
+</WrapItem>
+<WrapItem>
+  <Button colorScheme='green' shadow={`var(--shadow-ArrowBtn)`}> Proxima </Button>
+</WrapItem>
+
+</ButtonGroup>
+<span> 
+  
+</span>
+
       </Container>
       <DivContainer py={4}>
      

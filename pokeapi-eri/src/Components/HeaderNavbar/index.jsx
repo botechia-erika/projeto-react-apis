@@ -12,6 +12,7 @@ import {
 
 
 export function HeaderNavbar(){
+  
 const Logo = LogoNav
 return(
   <>

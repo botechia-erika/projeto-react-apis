@@ -1,8 +1,8 @@
 import React from 'react'
 import { Button, ButtonGroup, WrapItem, Box } from '@chakra-ui/react'
-const Total 
-export const Paginnation = () => 
-{  return (
+const Total = 6
+export function Paginnation(){ 
+  return (
     <ButtonGroup>
 
     <WrapItem>
@@ -15,7 +15,7 @@ export const Paginnation = () =>
       textAlign={'center'} padding={'1.4'}
       >
       <p>
-      Pagina Atual
+
       </p>
       </Box>
     </WrapItem>

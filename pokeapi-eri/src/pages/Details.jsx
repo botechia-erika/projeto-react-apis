@@ -31,7 +31,7 @@ export function Details(){
     <div>
     <ButtonGroup>
     <Button2>
-      <Link to='/list'>
+      <Link to='/list/0'>
         Lista
       </Link>
       </Button2>
