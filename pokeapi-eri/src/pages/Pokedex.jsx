@@ -17,7 +17,7 @@ import
 
 
 
-export function PokeDexHome(){
+export function Pokedex(){
     const property = {
         imageUrl: 'https://bit.ly/2Z4KKcF',
         imageAlt: 'Rear view of modern home with pool',
