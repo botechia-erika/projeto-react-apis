@@ -1,6 +1,16 @@
-
-
-
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+const Button7 = styled.button`
+position: fixed;
+z-index:11;
+top: 20px;
+left:68%;
+background: #f2fffd;
+height:40px;
+padding: 0.2rem 0.61rem;
+border: 3px solid black;
+border-radius: 14px;
+`
 import
 { Container, Grid
 ,  Heading,
@@ -30,6 +40,12 @@ export function Pokedex(){
       }
     return(
         <>
+        <Button7>
+<Link to="/list">
+  Lista
+</Link>
+
+        </Button7>
 <Container maxW='container.2xl' bg='green.400' color='#262626'>
 <Center py={6}>
       <Box

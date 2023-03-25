@@ -26,10 +26,7 @@ return(
       width="220px"
       />
       </Title>
-      <Button>
-<Link to={'/pokedex'}>
-  MyPokedex
-</Link></Button>
+
 </MenuBox>
 </>
 )

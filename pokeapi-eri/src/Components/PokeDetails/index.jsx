@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import {useEffect,  useState} from 'react'
 import {Box, Button, ButtonGroup, Progress, Spinner} from '@chakra-ui/react' 
-
+import styled from 'styled-components'
 import {
 
  Grid, GridItem } from '@chakra-ui/react'
@@ -31,6 +31,7 @@ setLoader(false)
   return (
 
     <div>
+
         {
         !loader ? ( 
           

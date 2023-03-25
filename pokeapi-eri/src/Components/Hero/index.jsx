@@ -1,4 +1,3 @@
-import { useTimeout } from '../../hooks/useTimeout';
 import { Link } from 'react-router-dom';
 import {
     Button,
@@ -9,7 +8,23 @@ import {
     Text,
     useBreakpointValue,
   } from '@chakra-ui/react';
+
+import styled from 'styled-components';
   import DefaultIcon01 from '../../assets/Icons/DefaultIcon01.png'
+
+
+const ButtonNav = styled.button`
+position: fixed;
+z-index:11;
+top: 20px;
+right: 10%;
+background: #f3ff14;
+height:40px;
+padding: 0.2rem 1rem;
+border: 3px solid black;
+border-radius: 14px;
+`
+
   export  function Hero() {
 
 /*    const [sliderItem, setSliderItem] = useState({pokemon.data.sprites.other['dream_world']['front_default']} alt="pokemon img"/> }) 
@@ -19,6 +34,10 @@ import {
     }*/
     return (
       <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
+              <ButtonNav>
+<Link to={'/pokedex'}>
+  MyPokedex
+</Link></ButtonNav>
         <Flex p={8} flex={1} align={'center'} justify={'center'}>
           <Stack spacing={6} w={'full'} maxW={'lg'}>
             <Heading fontSize={{ base: '2xl', md: '4xl', lg: '5xl' }}>
@@ -39,12 +58,12 @@ import {
                 _hover={{
                   bg: 'red.500',
                 }}>
-                <Link to="/pokedex">
+                <Link to="/list">
                 myPokedexApi
                  </Link> 
               </Button>
               <Button rounded={'full'}>
-                <Link to="/pokemons/">
+                <Link to="/list/">
              Caçar Pokemons
                  </Link> 
               </Button>
