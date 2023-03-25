@@ -29,7 +29,6 @@ import { Paginnation } from "../../components/Paginnation";
       const URL_API = ('https://pokeapi.co/api/v2/')
         
         const [pokemons , setPokemons] = useState([])
-        
 
         const requestPokemon = async()=>{
           const response = await axios.get(URL_API + 'pokemon?limit=175&offset=0')
@@ -41,7 +40,7 @@ import { Paginnation } from "../../components/Paginnation";
         
           useEffect(()=>{
             requestPokemon()
-        
+    
           }, [])
         
             console.log(pokemons)
@@ -96,10 +95,10 @@ fontWeight={9}
               px={3}
               py={1.5}
               color={'var(--white-default)'}
-              bg={useColorModeValue(`var(--badge-${item.type.name.toUpperCase()})`)}
+              bg={useColorModeValue(`var(--badge-${(item.type.name.toUpperCase())})`)}
               fontWeight={'700'}
               rounded='2xl'
-              boxShadow={'aa'}
+              boxShadow={`var(--shadow-arrowBTN)`}
               >
             {item.type.name}
   </Badge> ))}

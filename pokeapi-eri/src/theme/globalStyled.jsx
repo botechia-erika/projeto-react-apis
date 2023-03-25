@@ -19,7 +19,7 @@ export const GlobalStyled = createGlobalStyle`
         --badge-shadow1:  rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
         /*border radius*/
         --rounded-23: 23px;
-        
+        --shadow-ArrowBtn:  0px 2px 8px rgba(0, 0, 0, 0.25), 0px 0px 16px rgba(0, 0, 0, 0.1), inset 0px -1px 0px rgba(0, 0, 0, 0.25), inset 0px -2px 4px #000000, inset 0px 2px 6px rgba(255, 255, 255, 0.3), inset 0px 1px 2px rgba(255, 255, 255, 0.24);
         --bg-API:  linear-gradient(180deg, #FF0000 0%, #882727 59.9%);
         --bg-All: #5D5D5D;
         --primary-id: #DC0A2D;
