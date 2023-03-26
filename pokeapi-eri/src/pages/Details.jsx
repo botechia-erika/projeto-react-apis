@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { PokeDetails } from '../components/PokeDetails'
 import { Button, ButtonGroup } from '@chakra-ui/react'
@@ -27,22 +27,17 @@ border: 3px solid black;
 border-radius: 14px;
 `
 export function Details(){
+  navigate = Navigate()
   return (
-    <div>
-    <ButtonGroup>
-    <Button2>
-      <Link to='/list/0'>
-        Lista
-      </Link>
-      </Button2>
-      <Button3>
-        <Link to='/pokedex'>
-          MyPokeDex
-        </Link>
-      </Button3>
-    </ButtonGroup>
-      <PokeDetails/>
-    </div>
+  
+
+<div>
+  <Button as={'button'} onClick={navigate=('/pokedex/0')}>
+  MyPokeDex </Button>
+
+   <PokeDetails/>
+   </div> 
+
   )
 }
 
