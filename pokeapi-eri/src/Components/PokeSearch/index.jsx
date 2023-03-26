@@ -1,7 +1,8 @@
 import React from 'react'
+import { SearchBox } from './styled'
 
 export const PokeSearch = () => {
   return (
-    <div>PokeSearch</div>
+    <SearchBox>PokeSearch</SearchBox>
   )
 }

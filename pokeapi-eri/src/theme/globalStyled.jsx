@@ -11,13 +11,13 @@ export const GlobalStyled = createGlobalStyle`
     
 
     :root{
-
-
+        --shadow-Ctn1: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+        --dark-blue:  rgb(10, 0, 32);
+        --green-200:  #48ff00;
         --shadow-card01: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
         --shadow-card02: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 5px 10px rgba(0, 0, 0, 0.2), 0px 15px 40px rgba(0, 0, 0, 0.4);
         --shadow-card03: 0px 3.5px 5.5px rgba(0, 0, 0, 0.02);
         --badge-shadow1:  rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-        /*border radius*/
         --rounded-23: 23px;
         --shadow-ArrowBtn:  0px 2px 8px rgba(0, 0, 0, 0.25), 0px 0px 16px rgba(0, 0, 0, 0.1), inset 0px -1px 0px rgba(0, 0, 0, 0.25), inset 0px -2px 4px #000000, inset 0px 2px 6px rgba(255, 255, 255, 0.3), inset 0px 1px 2px rgba(255, 255, 255, 0.24);
         --bg-API:  linear-gradient(180deg, #FF0000 0%, #882727 59.9%);
@@ -64,4 +64,5 @@ ul, li{
 margin: 5px 20px;
 list-style-type: none;
 }
+
 `

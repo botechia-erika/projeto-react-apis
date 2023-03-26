@@ -35,8 +35,8 @@ border-radius: 14px;
     return (
       <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
               <ButtonNav>
-<Link to={'/pokedex'}>
-  MyPokedex
+<Link to={'/pokemons/'}>
+  BuscarPokemons
 </Link></ButtonNav>
         <Flex p={8} flex={1} align={'center'} justify={'center'}>
           <Stack spacing={6} w={'full'} maxW={'lg'}>
@@ -58,27 +58,18 @@ border-radius: 14px;
                 _hover={{
                   bg: 'red.500',
                 }}>
-                <Link to="/list">
-                myPokedexApi
-                 </Link> 
+                
+                <Link to="/pokemons/0">
+                  
+                                   </Link> 
               </Button>
               <Button rounded={'full'}>
-                <Link to="/list/1">
-             Caçar Pokemons
+                <Link to="/pokemons">
+              Caçar Pokemons
                  </Link> 
               </Button>
             </Stack>
           </Stack>
-        </Flex>
-        <Flex flex={1}>
-          <Image
-            alt={'Login Image'}
-            objectFit={'cover'}
-            position={'left' }
-                                      src={
-              'https://img.elo7.com.br/product/zoom/176659D/painel-festa-banner-pokemon-02-lona-tecido.jpg'
-            }
-          />
         </Flex>
       </Stack>
     );

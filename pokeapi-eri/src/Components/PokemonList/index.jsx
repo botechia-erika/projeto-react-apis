@@ -1,10 +1,9 @@
 import React from "react"
 import  {useEffect} from 'react';
 import {  useState } from 'react'
-import { Link, useParams } from "react-router-dom"
+import { Link, useParams, useNavigate } from "react-router-dom"
 import axios from  'axios'
 import { DivContainer } from "./styled"
-import Pokeball  from "../../assets/pngwing.png"
       import {
         Heading,
       ButtonGroup, WrapItem, 
@@ -23,57 +22,57 @@ import Pokeball  from "../../assets/pngwing.png"
       
       export function PokemonList(){
      const {pNum} = useParams()    
-     
+     const navigate = useNavigate()
      const [currentPage, setCurrentPage] = useState(pNum)
 const [totalPerPage, setTotalPerPage] = useState(6)
 const [offsetPerPage, setOffsetPerPage] = useState(0)
-        const pokeball1= Pokeball
+const [nextPage, setNextPage] = useState(pNum)
+const [previousPage, setPreviousPage] = useState(0)
       
       const URL_API = ('https://pokeapi.co/api/v2/')
         
         const [pokemons , setPokemons] = useState([])
-
+const url1='/pokemons/'
         const requestPokemon = async()=>{
           const response = await axios.get(URL_API + `pokemon?limit=${totalPerPage}&offset=${currentPage * 3}`)
           Promise.all(
             response.data.results.map(pokemon=>axios.get(pokemon.url))).then(data=>{setPokemons(data)})
-            
-
+          const navigate=useNavigate()
           }
         
         
           useEffect(()=>{
             requestPokemon()
-    
+   
           }, [])
-        
+
             console.log(pokemons)
-        
+          
           return(   
       <>
       <Container w={'100%'}>
       <ButtonGroup>
 
 <WrapItem>
-  <Link colorScheme='red' shadow={`var(--shadow-ArrowBtn)`}
-
-to={`/list/Number${Number(pNum)}${Number(-1)})}`}
-  > 
+  <Button colorScheme='red' shadow={`var(--shadow-ArrowBtn)`}
+navigate='-1'> 
   Anterior
-   </Link>
+   </Button>
 </WrapItem>
 <WrapItem>
   <Box bg='var(--white-default)' width={'7rem'} height={'2.3rem'} shadow={`var(--shadow-ArrowBtn)`}
   textAlign={'center'} padding={'1.4'}
   >
-  <p>
+
 {currentPage}
-  </p>
+
   </Box>
 </WrapItem>
 <WrapItem>
-  <Button colorScheme='green' shadow={`var(--shadow-ArrowBtn)`}> Proxima </Button>
-</WrapItem>
+<Button colorScheme='green' shadow={`var(--shadow-ArrowBtn)`}
+navigate to={'/pokemons/' , toString(Number(currentPage+1))}> 
+  Anterior
+   </Button></WrapItem>
 
 </ButtonGroup>
 <span> 
@@ -160,7 +159,7 @@ fontWeight={9}
               _focus={{
                 bg: 'yellow.200',
               }}>
-          <Link to={'/pokemons/' + pokemon.data.name}
+          <Link to={'/pokemon/' + pokemon.data.name}
               color={'black'}
                 dataPokemon = {pokemon}
               >
