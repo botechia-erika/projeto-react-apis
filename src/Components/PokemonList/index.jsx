@@ -43,7 +43,10 @@ const typeOptions = ["ALL", "NORMAL", "ELECTRIC", "FIGHTING", "FLYING",
           const navigate=useNavigate()
           }
         
-        
+        const pathNext = (currentPage)=>{
+   let next1 = currentPage+1
+   setNextPage(`pokemons/${next1()}`)
+        } 
           useEffect(()=>{
             requestPokemon()
           }, [])
@@ -71,10 +74,10 @@ navigate='-1'>
   </Box>
 </WrapItem>
 <WrapItem>
-<Button colorScheme='green' shadow={`var(--shadow-ArrowBtn)`}>
-  Anterior
-   </Button></WrapItem>
-<span> 
+
+<button>next</button>
+</WrapItem>
+<span>
 <Select placeholder='Selecione 1 Categoria'>
   <option value='0'>TODOS</option>
   <option value='1'>NORMAL</option>
@@ -139,7 +142,7 @@ navigate='-1'>
         
           <Stack align={'center'} justify={'center'} direction={'row'} mt={6}>
           
-{          pokemon.data.types.map(item=>(
+{...pokemon.data.types.map(item=>(
 <Badge
               px={3}
               py={1.5}
@@ -161,7 +164,7 @@ navigate='-1'>
             justifyContent={'space-between'}
             alignItems={'center'}>
             <button
-              onClick={(pokemon)=> addToPokedex(pokemon.data.name)}
+              onClick={()=> addToPokedex(pokemon)}
              >
              Capturar
             </button>

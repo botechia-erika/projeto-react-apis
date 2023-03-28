@@ -6,8 +6,8 @@ const [pokedex, setPokedex] = useState([])
   
 const addToPokedex = (pokemon)=>{
     
-    setPokedex([...pokedex])
-    setPokedex(pokemon)
+    setPokedex([...pokedex, pokemon])
+    console.log(pokemon)
 }
 
 

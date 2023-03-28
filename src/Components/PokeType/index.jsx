@@ -9,7 +9,29 @@ export function pokeColors(){
              return "#316520";
            case "DARK":
              return "#5C5365";
-           case "DRAGON":
+        
+           case "PSYCHIC":
+             return "#F67176";
+           case "ROCK":
+             return "#C7B78B";
+           case "STELL":
+             return "#BBBBBB";
+           case "WATER":
+             return "#33A4F5";
+           default:
+             return "#8A8A8A";
+         }
+     }
+export const PokeType = ({pokemon}) => {
+const [ColorBadge , setColorBadge] = useState('')
+ 
+setColorBadge({...pokemon.data.types.filter(type=>(type.name.toUppeCase())})
+return (
+    <TypeCtn colorType={ColorBadge}>
+    
+    </TypeCtn>
+)}
+   case "DRAGON":
              return "#0A6CBF";
            case "ELECTRIC":
              return "#F4D23B";
@@ -33,24 +55,3 @@ export function pokeColors(){
              return "#8A8A8A";
            case "POISON":
              return "#AD61AE";
-           case "PSYCHIC":
-             return "#F67176";
-           case "ROCK":
-             return "#C7B78B";
-           case "STELL":
-             return "#BBBBBB";
-           case "WATER":
-             return "#33A4F5";
-           default:
-             return "#8A8A8A";
-         }
-     }
-export const PokeType = ({pokemon}) => {
-const [ColorBadge , setColorBadge] = useState('')
- 
-setColorBadge({...pokemon.data.types.filter(type=>(type.name.toUppeCase())})
-return (
-    <TypeCtn colorType={ColorBadge}>
-    
-    </TypeCtn>
-)}
