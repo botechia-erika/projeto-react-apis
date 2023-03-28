@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-
+import  players1  from './../assets/game/players01.png';
 import
 { Container, Grid
 ,  Heading,
@@ -13,7 +13,13 @@ import
   Stack,
   Button,
   useColorModeValue,
+  Card,
+  CardBody,
+  Divider,
+  CardFooter,
+  ButtonGroup,
 } from '@chakra-ui/react';
+import { PokedexProvider } from '../globals/Context';
 
 
 const Button7 = styled.button`
@@ -29,87 +35,41 @@ border-radius: 14px;
 color: black;
 `
 export function PokedexPage(){
-    const property = {
-        imageUrl: 'https://bit.ly/2Z4KKcF',
-        imageAlt: 'Rear view of modern home with pool',
-        beds: 3,
-        baths: 2,
-        title: 'Modern home in city center in the heart of historic Los Angeles',
-        formattedPrice: '$1,900.00',
-        reviewCount: 34,
-        rating: 4,
-      }
-    return(
+  const player = players1  
+
+      return(
         <>
       
 <Container maxW='container.2xl' bg='green.400' color='#262626'>
-<Center py={6}>
-      <Box
-        maxW={'270px'}
-        w={'full'}
-        bg={useColorModeValue('white', 'gray.800')}
-        boxShadow={'2xl'}
-        rounded={'md'}
-        overflow={'hidden'}>
-        <Image
-          h={'120px'}
-          w={'full'}
-          src={
-            'https://images.unsplash.com/photo-1612865547334-09cb8cb455da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'
-          }
-          objectFit={'cover'}
-        />
-        <Flex justify={'center'} mt={-12}>
-          <Avatar
-            size={'xl'}
-            src={
-              'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ'
-            }
-            alt={'Author'}
-            css={{
-              border: '2px solid white',
-            }}
-          />
-        </Flex>
 
-        <Box p={6}>
-          <Stack spacing={0} align={'center'} mb={5}>
-            <Heading fontSize={'2xl'} fontWeight={500} fontFamily={'body'}>
-              John Doe
-            </Heading>
-            <Text color={'gray.500'}>Frontend Developer</Text>
-          </Stack>
 
-          <Stack direction={'row'} justify={'center'} spacing={6}>
-            <Stack spacing={0} align={'center'}>
-              <Text fontWeight={600}>23k</Text>
-              <Text fontSize={'sm'} color={'gray.500'}>
-                Followers
-              </Text>
-            </Stack>
-            <Stack spacing={0} align={'center'}>
-              <Text fontWeight={600}>23k</Text>
-              <Text fontSize={'sm'} color={'gray.500'}>
-                Followers
-              </Text>
-            </Stack>
-          </Stack>
+<Flex py={2} justifyContent={'space-around'}>
+<Card maxW='sm' maxH={'500px'}>
+  <CardBody>
+  <Heading size='lg' textAlign={'center'} background={'red.400'}
+  mb='30px'>Bem-Vindo Treinador</Heading>
+    <Image maxH={'220px'} w={'100%'}
+      objectFit={'contain'}
+      bg={'whitesmoke'}
+      src={players1}
+      alt='avatar pokeTrainer'
+      borderRadius='2xl'
+      position={'top center'}
+    />
+    <Stack mt='6' spacing='3'>
 
-          <Button
-            w={'full'}
-            mt={8}
-            bg={useColorModeValue('#151f21', 'gray.900')}
-            color={'white'}
-            rounded={'md'}
-            _hover={{
-              transform: 'translateY(-2px)',
-              boxShadow: 'lg',
-            }}>
-            Follow
-          </Button>
-        </Box>
-      </Box>
-    </Center>
+
+      <Text color='#340404.600' fontSize='2xl'>
+    <strong>Total de Pokemons: 0</strong>
+      </Text>
+    </Stack>
+  </CardBody>
+  <Divider />
+  <CardFooter>
+<p>Não perca tempo!</p>
+  </CardFooter>
+</Card>
+    </Flex>
 
   </Container>
 </>

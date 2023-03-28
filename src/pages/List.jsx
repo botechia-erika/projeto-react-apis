@@ -2,6 +2,8 @@ import React from 'react'
 import { PokemonList } from '../components/PokemonList'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
+import {useEffect, useContext, useState} from "react"
+import { PokedexContext } from './../globals/Context'
 const Button5 = styled.button`
 position: fixed;
 z-index:11;

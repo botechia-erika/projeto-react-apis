@@ -1,7 +1,6 @@
 import React from 'react';
 import { ChakraProvider } from '@chakra-ui/react'
-
-
+import  {PokedexProvider}  from './globals/Context';
 import {GlobalStyled} from './theme/globalStyled';
 import {HeaderNavbar} from './components/HeaderNavbar/index'
 import { AppRouter } from './routes/AppRouter';
@@ -10,15 +9,18 @@ function App() {
   
   
   return ( 
-  <div className="App">  
-  <ChakraProvider>   
 
+  <ChakraProvider>   
+  <PokedexProvider>
+<div className='App'>
     <GlobalStyled/>  
       <AppRouter/>     
-  <HeaderNavbar/>  
+  <HeaderNavbar/>
+  </div>
+
+  </PokedexProvider>  
   </ChakraProvider>
-</div>
- );
+);
 }
 
 export default App;

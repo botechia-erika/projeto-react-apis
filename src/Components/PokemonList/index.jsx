@@ -1,12 +1,12 @@
-import React from "react"
-import  {useEffect} from 'react';
-import {  useState } from 'react'
+import React from 'react' 
+import {useEffect, useContext, useState} from "react"
+import { PokedexContext } from './../../globals/Context'
 import { Link, useParams, useNavigate } from "react-router-dom"
 import axios from  'axios'
 import { DivContainer } from "./styled"
       import {
         Heading,
-      ButtonGroup, WrapItem, 
+    WrapItem, 
         Box,
         Center,
         Image,
@@ -20,9 +20,9 @@ import { DivContainer } from "./styled"
         Container,
       } from '@chakra-ui/react';
       
-      export function PokemonList(){
+export function PokemonList(){
      const {pNum} = useParams()    
-     const navigate = useNavigate()
+
      const [currentPage, setCurrentPage] = useState(pNum)
 const [totalPerPage, setTotalPerPage] = useState(6)
 const [offsetPerPage, setOffsetPerPage] = useState(0)
@@ -35,7 +35,7 @@ const typeOptions = ["ALL", "NORMAL", "ELECTRIC", "FIGHTING", "FLYING",
       const URL_API = ('https://pokeapi.co/api/v2/')
         
         const [pokemons , setPokemons] = useState([])
-const url1='/pokemons/'
+
         const requestPokemon = async()=>{
           const response = await axios.get(URL_API + `pokemon?limit=${totalPerPage}&offset=${currentPage * 3}`)
           Promise.all(
@@ -46,15 +46,15 @@ const url1='/pokemons/'
         
           useEffect(()=>{
             requestPokemon()
-   
           }, [])
 
             console.log(pokemons)
-          
+
+            const {addToPokedex}=useContext(PokedexContext)
           return(   
       <>
       <Container w={'100%'}>
-      <ButtonGroup>
+
 
 <WrapItem>
   <Button colorScheme='red' shadow={`var(--shadow-ArrowBtn)`}
@@ -68,16 +68,12 @@ navigate='-1'>
   >
 
 {currentPage}
-
   </Box>
 </WrapItem>
 <WrapItem>
-<Button colorScheme='green' shadow={`var(--shadow-ArrowBtn)`}
-navigate to={'/pokemons/' , toString(Number(currentPage+1))}> 
+<Button colorScheme='green' shadow={`var(--shadow-ArrowBtn)`}>
   Anterior
    </Button></WrapItem>
-
-</ButtonGroup>
 <span> 
 <Select placeholder='Selecione 1 Categoria'>
   <option value='0'>TODOS</option>
@@ -145,7 +141,6 @@ navigate to={'/pokemons/' , toString(Number(currentPage+1))}>
           
 {          pokemon.data.types.map(item=>(
 <Badge
-fontWeight={9}
               px={3}
               py={1.5}
               color={'var(--white-default)'}
@@ -165,15 +160,11 @@ fontWeight={9}
             padding={2}
             justifyContent={'space-between'}
             alignItems={'center'}>
-            <Button
-              flex={1}
-              fontSize={'sm'}
-              rounded={'full'}
-              _focus={{
-                bg: 'yellow.200',
-              }}>
-              Message
-            </Button>
+            <button
+              onClick={(pokemon)=> addToPokedex(pokemon.data.name)}
+             >
+             Capturar
+            </button>
             <Button
               flex={1}
               color={'black'}
