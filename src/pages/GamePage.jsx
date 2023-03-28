@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { MainContainer } from "../Components/DisplayGame/styled";
 
-export const MainShop = styled.div`
+const MainShop = styled.div`
     display: flex;
     width: 90%;
     flex-direction: row;
@@ -11,13 +10,13 @@ export const MainShop = styled.div`
     margin: 0 auto;
 `
 
-export const SearchClient = styled.div`
+ const SearchClient = styled.div`
     display: flex;
     width: 20%;
     flex-direction: column;
 `
 
-export const ResponseSection = styled.div`
+ const ResponseSection = styled.div`
     display: flex;
     width: 50%;
     flex-direction: column;
@@ -31,7 +30,7 @@ export function GamePage(){
 
     return(
       <>
- <MainContainer>     <h1>Shop</h1>     <ResponseSection>
+ <MainShop>     <h1>PokeGame</h1>     <ResponseSection>
       
          
 
@@ -59,7 +58,7 @@ Tipos (japonês: タイプ Tipo) são propriedades aplicadas a Pokémon e seus m
 Durante a Geração I, os tipos eram ocasionalmente referidos como elementos.
 </p>
 </ResponseSection>
-</MainContainer>
+</MainShop>
 
 </>
     )

@@ -1,4 +1,4 @@
-import {DisplayGame} from './../components/DisplayGame/index'
+import {DisplayGame} from '../components/DisplayGame/index'
 
 export function BattlePage(){
     return(

@@ -16,7 +16,7 @@ import { DivContainer } from "./styled"
         Button,
         useColorModeValue,
         Badge,
-        Img,
+        Select,
         Container,
       } from '@chakra-ui/react';
       
@@ -28,7 +28,10 @@ const [totalPerPage, setTotalPerPage] = useState(6)
 const [offsetPerPage, setOffsetPerPage] = useState(0)
 const [nextPage, setNextPage] = useState(pNum)
 const [previousPage, setPreviousPage] = useState(0)
-      
+const typeOptions = ["ALL", "NORMAL", "ELECTRIC", "FIGHTING", "FLYING",
+"ROCK", "DARK", "FIRE", "GRASS", "POISON", "PSYCHIC", "GHOST", "STEEL",
+"WATER", "ICE", "GROUND", "BUG",]
+
       const URL_API = ('https://pokeapi.co/api/v2/')
         
         const [pokemons , setPokemons] = useState([])
@@ -76,9 +79,30 @@ navigate to={'/pokemons/' , toString(Number(currentPage+1))}>
 
 </ButtonGroup>
 <span> 
-  
+<Select placeholder='Selecione 1 Categoria'>
+  <option value='0'>TODOS</option>
+  <option value='1'>NORMAL</option>
+  <option value='2'>FIGHTING</option>
+  <option value='3'>FLYING</option>
+  <option value='4'>ROCK</option>
+  <option value='5'>DARK</option>
+  <option value='6'>FIRE</option>
+  <option value='7'>GRASS</option>
+  <option value='8'>POISON</option>
+  <option value='9'>ELECTRIC</option>
+  <option value='10'>PSYCHIC</option>
+  <option value='11'>GHOST</option>
+  <option value='12'>STEEL</option>
+  <option value='13'>WATER</option>
+  <option value='14'>POISON</option>
+  <option value='15'>PSYCHIC</option>
+  <option value='16'>GHOST</option>
+  <option value='17'>WATER</option>
+  <option value='18'>ICE</option>
+  <option value='19'>GROUND</option>
+  <option value='20'>BUG</option>
+</Select>
 </span>
-
       </Container>
       <DivContainer py={4}>
      

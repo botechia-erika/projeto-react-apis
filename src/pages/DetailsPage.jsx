@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import {useEffect,  useState} from 'react'
-import {Box, Button, ButtonGroup, Progress, Spinner} from '@chakra-ui/react' 
+import {Box, Button, ButtonGroup, Progress, Spinner, Badge} from '@chakra-ui/react' 
 
 import {
 
@@ -46,6 +46,7 @@ setLoader(false)
   <GridItem colSpan={3} bg='papayawhip'>
 <h2>{dataPokemon.data.name}</h2>
 
+
 <ul key={dataPokemon.data.id}>
   {dataPokemon.data.stats.map(pokeStat=>(
   <li>
@@ -61,7 +62,12 @@ setLoader(false)
     </GridItem>
   <GridItem colSpan={3} bg='papayawhip' >
   <img src={dataPokemon.data.sprites.other['dream_world']['front_default']} alt="pokemon img"/>  
-
+  <ul>{dataPokemon.data.types.map(typeName=>(
+<li         style={{"background": `var(--badge-${typeName.type.name.toUpperCase()})`}}
+              >
+            {typeName.type.name}
+  </li> ))}
+  </ul>
     </GridItem>
  
   <GridItem colSpan={6}  bg='tomato' >

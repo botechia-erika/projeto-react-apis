@@ -7,7 +7,6 @@ import { DetailsPage } from '../pages/DetailsPage'
 import {PokedexPage} from './../pages/PokedexPage'
 import { Search } from './../pages/Search'
 import { GamePage } from './../pages/GamePage'
-
 export function AppRouter() {
   const URL_API = ('https://pokeapi.co/api/v2/')
   const [userList, setUserList] = useState([])
@@ -48,11 +47,11 @@ const pokeFetch = async()=>{
          <Routes>
     <Route path="/" element={<LandingPage/>} />
     <Route path="/pokemons/:pNum" element={<List />}/>
-    <Route path="/details/:pokeName" element={<DetailsPage/>} />   
+    <Route path="/pokemon/:pokeName" element={<DetailsPage/>} />   
     <Route path="/pokemons" element={<Search/>} />   
-    <Route path="/pokedex/:userId" element={<PokedexPage/>} />
-    <Route path="/game/:gameId" element={<GamePage/>} />
-    
+    <Route path="/pokedex" element={<PokedexPage/>} />
+    <Route path="/game" element={<GamePage/>} />
+
     </Routes>    
     </div>
  

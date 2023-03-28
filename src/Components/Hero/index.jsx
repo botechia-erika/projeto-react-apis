@@ -59,9 +59,9 @@ border-radius: 14px;
                   bg: 'red.500',
                 }}>
                 
-                <Link to="/pokemons/0">
-                  
-                                   </Link> 
+                <Link to={'/pokemons/0'}>
+  BuscarPokemons
+</Link>
               </Button>
               <Button rounded={'full'}>
                 <Link to="/pokemons">
