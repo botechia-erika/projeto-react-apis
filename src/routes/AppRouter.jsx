@@ -7,6 +7,7 @@ import { DetailsPage } from '../pages/DetailsPage'
 import {PokedexPage} from './../pages/PokedexPage'
 import { Search } from './../pages/Search'
 import { GamePage } from './../pages/GamePage'
+import { BattlePage } from '../pages/BattlePage'
 export function AppRouter() {
   const URL_API = ('https://pokeapi.co/api/v2/')
   const [userList, setUserList] = useState([])
@@ -18,13 +19,13 @@ export function AppRouter() {
    
          <Routes>
     <Route path="/" element={<LandingPage/>} />
+    <Route path="/pokemons" element={<Search/>} />  
     <Route path="/pokemons/:pNum" element={<List />}/>
-    <Route path="/pokemon/:pokeName" element={<DetailsPage/>} />   
-    <Route path="/pokemons" element={<Search/>} />   
+    <Route path="/pokemon/:pokeName" element={<DetailsPage/>} />    
     <Route path="/pokedex" element={<PokedexPage/>} />
-    <Route path="/game" element={<GamePage/>} />
-
-    </Routes>    
+    <Route path="/pokedex/game" element={<GamePage/>} />
+    <Route path="/pokedex/list" element={<BattlePage/>} />
+ </Routes>    
     </div>
  
   )

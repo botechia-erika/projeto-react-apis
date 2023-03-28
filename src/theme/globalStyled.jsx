@@ -6,9 +6,9 @@ export const GlobalStyled = createGlobalStyle`
     margin: 0;
     padding: 0;
     background: teal;
-    font-family: Open-Sans, Helvetica, Sans-Serif;
+    font-family: 'Outfit', sans-serif;
     list-style-position: inside;
-    
+        
 
     :root{
         --shadow-Ctn1: rgba(0, 0, 0, 0.4) 0px 30px 90px;
@@ -50,7 +50,7 @@ export const GlobalStyled = createGlobalStyle`
         --badge-ROCK: #E1B237;
         --badge-STEEL: #2A4950;
                 --white-default: #FFFF;
-
+        font-size: 16px;
         --gradient-nav: linear-gradient(135deg, #e83a68 0%, #cd004e 100%);
         --gradient-BG: linear-gradient(90deg, #c5c5c5 0%, #c5c5cb 35%, #d9d9d9 94%, #bfc1c4 100%);
     }

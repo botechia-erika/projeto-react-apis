@@ -1,7 +1,9 @@
-import {DisplayGame} from '../components/DisplayGame/index'
+import {DisplayGame} from './../Components/DisplayGame/index'
 
 export function BattlePage(){
     return(
+        <>
         <DisplayGame/>
+    </>
     )
 }

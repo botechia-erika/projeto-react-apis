@@ -23,16 +23,16 @@ import { PokedexProvider } from '../globals/Context';
 
 
 const Button7 = styled.button`
+
 position: fixed;
 z-index:11;
 top: 20px;
-left:68%;
-background: #00ffd9;
+left:69%;
+background: #f2fffd;
 height:40px;
 padding: 0.2rem 0.61rem;
 border: 3px solid black;
 border-radius: 14px;
-color: black;
 `
 export function PokedexPage(){
   const player = players1  
@@ -41,7 +41,7 @@ export function PokedexPage(){
         <>
       
 <Container maxW='container.2xl' bg='green.400' color='#262626'>
-
+<Button7>PokeList</Button7>
 
 <Flex py={2} justifyContent={'space-around'}>
 <Card maxW='sm' maxH={'500px'}>

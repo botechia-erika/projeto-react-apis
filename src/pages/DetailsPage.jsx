@@ -26,8 +26,9 @@ top: 10px;
 color: white;
 font-weight: 900;
 left: 50%;
-font-size: 2rem;
+font-size: 1.9rem;
 z-index: 11;
+margin-right: 2rem;
 `
 export const DetailsPage = () => {
 const [dataPokemon, setDataPokemon] = useState({})
@@ -51,7 +52,7 @@ setLoader(false)
       
 }, [])
 
-const envolveChain = (pokemon)=>{
+const displayInfo = ()=>{
   pokemon.data.filter(pokeStages =>{
     pokeStages.stages['envolves_to']
   })
