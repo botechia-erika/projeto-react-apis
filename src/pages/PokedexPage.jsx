@@ -1,78 +1,89 @@
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import  players1  from './../assets/game/players01.png';
-import
-{ Container, Grid
-,  Heading,
-  Avatar,
-  Box,
-  Center,
-  Image,
-  Flex,
-  Text,
-  Stack,
-  Button,
-  useColorModeValue,
-  Card,
-  CardBody,
-  Divider,
-  CardFooter,
-  ButtonGroup,
-} from '@chakra-ui/react';
-import { PokedexProvider } from '../globals/Context';
+import {useEffect, useContext, useState} from "react"
 
+import { PokedexContext } from './../globals/Context'
+import { PokedexItem } from "./../Components/PokedexItem";
+import axios from "axios";
 
-const Button7 = styled.button`
+import styled from "styled-components";
 
-position: fixed;
-z-index:11;
-top: 20px;
-left:69%;
-background: #f2fffd;
-height:40px;
-padding: 0.2rem 0.61rem;
-border: 3px solid black;
-border-radius: 14px;
+const ListAll = styled.li`
+display: inline-block;
+padding: 2rem;
+background: green;
+color: white; 
+font-size: 2rem;
+width: 500px;
 `
-export function PokedexPage(){
-  const player = players1  
 
-      return(
-        <>
-      
-<Container maxW='container.2xl' bg='green.400' color='#262626'>
-<Button7>PokeList</Button7>
-
-<Flex py={2} justifyContent={'space-around'}>
-<Card maxW='sm' maxH={'500px'}>
-  <CardBody>
-  <Heading size='lg' textAlign={'center'} background={'red.400'}
-  mb='30px'>Bem-Vindo Treinador</Heading>
-    <Image maxH={'220px'} w={'100%'}
-      objectFit={'contain'}
-      bg={'whitesmoke'}
-      src={players1}
-      alt='avatar pokeTrainer'
-      borderRadius='2xl'
-      position={'top center'}
-    />
-    <Stack mt='6' spacing='3'>
+const ListPokedex = styled.li`
+display: inline-block;
+padding: 2rem;
+background: #f3f1f1;
+width: 500px;
+height: 560px;
 
 
-      <Text color='#340404.600' fontSize='2xl'>
-    <strong>Total de Pokemons: 0</strong>
-      </Text>
-    </Stack>
-  </CardBody>
-  <Divider />
-  <CardFooter>
-<p>Não perca tempo!</p>
-  </CardFooter>
-</Card>
-    </Flex>
+img{
+  max-height: 300px;
+  object-fit: contain;
+}
 
-  </Container>
-</>
+`
+const TitleCard = styled.h2`
 
-    )
+font-size: 3rem;
+
+`
+export  function PokedexPage() {
+const URL_API1 = "https://pokeapi.co/api/v2";
+const [pokemons, setPokemons] = useState([]);
+const [next, setNext] = useState("");
+const [previous, setPrevious] = useState("");
+const [pokedexList, setPokedexList] = useState([])
+const {addToPokedex, deletePokemon , pokedex}=useContext(PokedexContext)
+const handleNext = (url) => {
+  requestPokemon(next);
+};
+console.log(pokedex)
+const handlePrevious = (url) => {
+  requestPokemon(previous);
+};
+const requestPokemon = async (url) => {
+  const response = await axios.get(url);
+  setNext(response.data.next);
+  setPrevious(response.data.previous);
+  Promise.all(
+    response.data.results.map((pokemon) => axios.get(pokemon.url))
+  ).then((data) => {
+    setPokemons(data);
+  });
+};
+useEffect(()=>{ 
+  requestPokemon(URL_API1 + "/pokemon/");
+}, [])
+return (
+  <div className="App">
+ 
+  <ul>
+    {pokemons.map((pokemon) => pokedex.find((poke)=>poke.data.name === pokemon.data.name)?(
+      <ListAll key={pokemon.data.name}>
+<div>
+      <TitleCard>  {pokemon.data.name}</TitleCard>
+          <button onClick={()=>deletePokemon(pokemon)}>delete pokemon</button>
+     </div>
+      </ListAll>):
+      (         
+        <ListPokedex key={pokemon.data.name}>
+        
+        <TitleCard>{pokemon.data.name}</TitleCard>
+        <img src={pokemon.data.sprites.other['dream_world']['front_default']} width='90%' height='100px' alt="pokemon img"/>  
+      <button onClick={()=>addToPokedex(pokemon)}>add to pokedex </button>
+ </ListPokedex>
+      )
+    )}
+    </ul>
+    <button onClick={() => handlePrevious()}>previous</button>
+    <button onClick={() => handleNext()}>next</button>
+  </div>
+);
 }

@@ -19,8 +19,8 @@ export function AppRouter() {
    
          <Routes>
     <Route path="/" element={<LandingPage/>} />
-    <Route path="/pokemons" element={<Search/>} />  
-    <Route path="/pokemons/:pNum" element={<List />}/>
+
+    <Route path="/pokemons" element={<List />}/>
     <Route path="/pokemon/:pokeName" element={<DetailsPage/>} />    
     <Route path="/pokedex" element={<PokedexPage/>} />
     <Route path="/pokedex/game" element={<GamePage/>} />

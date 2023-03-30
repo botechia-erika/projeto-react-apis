@@ -21,40 +21,30 @@ import { DivContainer } from "./styled"
       } from '@chakra-ui/react';
       
 export function PokemonList(){
-     const {pNum} = useParams()    
-
-     const [currentPage, setCurrentPage] = useState(pNum)
-const [totalPerPage, setTotalPerPage] = useState(6)
-const [offsetPerPage, setOffsetPerPage] = useState(0)
-const [nextPage, setNextPage] = useState(pNum)
-const [previousPage, setPreviousPage] = useState(0)
-const typeOptions = ["ALL", "NORMAL", "ELECTRIC", "FIGHTING", "FLYING",
-"ROCK", "DARK", "FIRE", "GRASS", "POISON", "PSYCHIC", "GHOST", "STEEL",
-"WATER", "ICE", "GROUND", "BUG",]
-
-      const URL_API = ('https://pokeapi.co/api/v2/')
-        
-        const [pokemons , setPokemons] = useState([])
-
-        const requestPokemon = async()=>{
-          const response = await axios.get(URL_API + `pokemon?limit=${totalPerPage}&offset=${currentPage * 3}`)
-          Promise.all(
-            response.data.results.map(pokemon=>axios.get(pokemon.url))).then(data=>{setPokemons(data)})
-          const navigate=useNavigate()
-          }
-        
-        const pathNext = (currentPage)=>{
-   let next1 = currentPage+1
-   setNextPage(`pokemons/${next1()}`)
-        } 
-          useEffect(()=>{
-            requestPokemon()
-          }, [])
-
-            console.log(pokemons)
-
-            const {addToPokedex}=useContext(PokedexContext)
-          return(   
+  const URL_API = "https://pokeapi.co/api/v2";
+  const [pokemons, setPokemons] = useState([]);
+  const [next, setNext] = useState("");
+  const [previous, setPrevious] = useState("");
+  const [pokedexList, setPokedexList] = useState([])
+  const {addToPokedex, deletePokemon , pokedex}=useContext(PokedexContext)
+  const handleNext = (url) => {
+    requestPokemon(next);
+  };
+console.log(pokedex)
+  const handlePrevious = (url) => {
+    requestPokemon(previous);
+  };
+  const requestPokemon = async (url) => {
+    const response = await axios.get(url);
+    setNext(response.data.next);
+    setPrevious(response.data.previous);
+    Promise.all(
+      response.data.results.map((pokemon) => axios.get(pokemon.url))
+    ).then((data) => {
+      setPokemons(data);
+    });
+  }; 
+  (   
       <>
       <Container w={'100%'}>
 
@@ -104,7 +94,8 @@ navigate='-1'>
 </span>
       </Container>
       <DivContainer py={4}>
-     
+      <button onClick={() => handlePrevious()}>previous</button>
+      <button onClick={() => handleNext()}>next</button>
         {pokemons.map(pokemon=>(
       
       <Center py={3}>
@@ -195,7 +186,7 @@ navigate='-1'>
       
         
       ))}
-      
+     
           </DivContainer>
      </>
       )

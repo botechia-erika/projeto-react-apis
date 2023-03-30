@@ -7,13 +7,17 @@ const [pokedex, setPokedex] = useState([])
 const addToPokedex = (pokemon)=>{
     
     setPokedex([...pokedex, pokemon])
-    console.log(pokemon)
+
 }
 
+const deletePokemon = (pokemon)=>{
+    
+  setPokedex(pokedex.filter((poke=>poke.data.name != pokemon.data.name)))
 
+}
 
 return(
-    <PokedexContext.Provider value={{pokedex , setPokedex, addToPokedex}}>
+    <PokedexContext.Provider value={{pokedex , setPokedex, addToPokedex, deletePokemon}}>
     {children}
     </PokedexContext.Provider>
 )
