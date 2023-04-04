@@ -35,9 +35,8 @@ border-radius: 14px;
     return (
       <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
               <ButtonNav>
-<Link to={'/pokemons/'}>
-  BuscarPokemons
-</Link></ButtonNav>
+<Link to={'/pokedex'}>
+  My Pokedex</Link></ButtonNav>
         <Flex p={8} flex={1} align={'center'} justify={'center'}>
           <Stack spacing={6} w={'full'} maxW={'lg'}>
             <Heading fontSize={{ base: '2xl', md: '4xl', lg: '5xl' }}>
@@ -59,8 +58,8 @@ border-radius: 14px;
                   bg: 'red.500',
                 }}>
                 
-                <Link to={'/pokemons/0'}>
-  BuscarPokemons
+                <Link to={'/pokedex'}>
+  My Pokedex
 </Link>
               </Button>
               <Button rounded={'full'}>

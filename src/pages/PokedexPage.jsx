@@ -1,7 +1,8 @@
 import {useEffect, useContext, useState} from "react"
-
+import { Link } from "react-router-dom";
 import { PokedexContext } from './../globals/Context'
 import { PokedexItem } from "./../Components/PokedexItem";
+
 import axios from "axios";
 
 import styled from "styled-components";
@@ -69,7 +70,13 @@ return (
       <ListAll key={pokemon.data.name}>
 <div>
       <TitleCard>  {pokemon.data.name}</TitleCard>
-          <button onClick={()=>deletePokemon(pokemon)}>delete pokemon</button>
+          <button onClick={()=>deletePokemon(pokemon)}>delete pokemon</button>          <Link to={'/pokemon/' + pokemon.data.name}
+              color={'black'}
+                dataPokemon = {pokemon}
+              >
+            +INFO
+      
+        </Link>
      </div>
       </ListAll>):
       (         
@@ -77,7 +84,12 @@ return (
         
         <TitleCard>{pokemon.data.name}</TitleCard>
         <img src={pokemon.data.sprites.other['dream_world']['front_default']} width='90%' height='100px' alt="pokemon img"/>  
-      <button onClick={()=>addToPokedex(pokemon)}>add to pokedex </button>
+      <button onClick={()=>{
+      
+        addToPokedex(pokemon)
+        setPokemons(pokemons.filter(poke=>(poke.data.id != pokemon.data.id)))
+        }
+      }>add to pokedex </button>
  </ListPokedex>
       )
     )}

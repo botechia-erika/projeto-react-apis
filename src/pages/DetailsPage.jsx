@@ -111,6 +111,11 @@ const displayInfo = ()=>{
   
 
   </Flex>
+  <ul>
+  
+
+
+  </ul>
 
     </GridItem>
 
