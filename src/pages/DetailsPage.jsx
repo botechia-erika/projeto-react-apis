@@ -1,5 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import {useEffect,  useState} from 'react'
 import {Box, Button, ButtonGroup, Progress, Spinner, Badge, Flex} from '@chakra-ui/react' 
@@ -105,20 +106,28 @@ const displayInfo = ()=>{
  
   <GridItem colSpan={6} height="90px" bg='#1c0236' >
 <Flex height="120px" alignContent={'space-around'}>
-  <EnvolveChainBtn>STATS</EnvolveChainBtn>
-  <EnvolveChainBtn>MOVES</EnvolveChainBtn>
-  <EnvolveChainBtn>CAPTURE</EnvolveChainBtn>
+  <EnvolveChainBtn>  <Link to={'/pokedex'}>
+  MyPokedex</Link></EnvolveChainBtn>
+  <EnvolveChainBtn>  <Link to={'/pokemons'}>
+  CaçarPokemons</Link></EnvolveChainBtn>
   
+  <EnvolveChainBtn>Envolve</EnvolveChainBtn>
+
+ 
 
   </Flex>
-  <ul>
   
+<Flex>
+<Box overflow={'scroll'}>{dataPokemon.data.moves.map(moveTypes=>(
+      <Badge bg={'#707070'} m={'15px'} border={'2px solid #0c0801'}
+         key={moveTypes.move.url} color={'white'} p={'5px'}>{moveTypes.move.name}</Badge>
+        ))}
+      </Box>
 
-
-  </ul>
-
+</Flex>
+  
     </GridItem>
-
+ 
 </Grid>
 
             )

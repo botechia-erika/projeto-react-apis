@@ -30,6 +30,17 @@ img{
 }
 
 `
+const ButtonNav4 = styled.button`
+position: fixed;
+z-index:11;
+top: 20px;
+right: 10%;
+background: #f3ff14;
+height:40px;
+padding: 0.2rem 1rem;
+border: 3px solid black;
+border-radius: 14px;
+`
 const TitleCard = styled.h2`
 
 font-size: 3rem;
@@ -64,9 +75,11 @@ useEffect(()=>{
 }, [])
 return (
   <div className="App">
- 
+                <ButtonNav4>
+<Link to={'/pokedex'}>
+  MyPokedex</Link></ButtonNav4>
   <ul>
-    {pokemons.map((pokemon) => pokedex.find((poke)=>poke.data.name === pokemon.data.name)?(
+    {pokemons.map((pokemon) => pokedex.find((poke)=>poke.data.name == pokemon.data.name)?(
       <ListAll key={pokemon.data.name}>
 <div>
       <TitleCard>  {pokemon.data.name}</TitleCard>
@@ -83,13 +96,15 @@ return (
         <ListPokedex key={pokemon.data.name}>
         
         <TitleCard>{pokemon.data.name}</TitleCard>
-        <img src={pokemon.data.sprites.other['dream_world']['front_default']} width='90%' height='100px' alt="pokemon img"/>  
+        <img src={pokemon.data.sprites.other['dream_world']['front_default']} width='90%' height='100px' alt="pokemon img"/>        <Link to={'/pokemon/' + pokemon.data.name}>
+  INFO</Link>
       <button onClick={()=>{
       
         addToPokedex(pokemon)
         setPokemons(pokemons.filter(poke=>(poke.data.id != pokemon.data.id)))
         }
       }>add to pokedex </button>
+
  </ListPokedex>
       )
     )}
