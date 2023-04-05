@@ -4,7 +4,7 @@ import { Routes, Route} from 'react-router-dom'
 import { LandingPage } from './../pages/LandingPage'
 import { List } from '../pages/List'
 import { DetailsPage } from '../pages/DetailsPage'
-import {PokedexPage} from './../pages/PokedexPage'
+import {PokemonsList} from '../pages/PokemonsList'
 import { Search } from './../pages/Search'
 import { GamePage } from './../pages/GamePage'
 import { BattlePage } from '../pages/BattlePage'
@@ -19,7 +19,7 @@ export function AppRouter() {
    
          <Routes>
 
-    <Route path="/" element={<PokedexPage />}/>
+    <Route path="/" element={<PokemonsList />}/>
     <Route path="/pokemon/:pokeName" element={<DetailsPage/>} />    
     <Route path="/pokedex" element={<List/>} />
     </Routes>    

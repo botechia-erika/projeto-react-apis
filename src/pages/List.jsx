@@ -64,11 +64,12 @@ return (
 <Link to={'/pokemons'}>
   Caçar Pokemons</Link></ButtonNav2>
   <ul>
-    {pokedex.map((pokemon) => pokedex.find((poke)=>poke.data.name == pokemon.data.name)?(
+    {pokedex.map((pokemon) => pokedex.find((poke)=>poke.data.name != pokemon.data.name)?(
       <ListAll key={pokemon.data.id}>
 <div>
       <TitleCard>  {pokemon.data.name}</TitleCard>
           <button onClick={()=>deletePokemon({pokemon})}>delete pokemon</button>          <Link to={'/pokemon/' + pokemon.data.name}
+          
               color={'black'}
                 dataPokemon = {pokemon}
               >
@@ -84,10 +85,10 @@ return (
         <img src={pokemon.data.sprites.other['dream_world']['front_default']} width='90%' height='100px' alt="pokemon img"/>  
       <button onClick={()=>{
       
-        addToPokedex(pokemon)
+      deletePokemon(pokemon)
         setPokemons(pokemons.filter(poke=>(poke.data.id == pokemon.data.id)))
         }
-      }>add to pokedex </button>
+      }>delete to  pokedex </button>
  </ListPokedex>
       )
     )}

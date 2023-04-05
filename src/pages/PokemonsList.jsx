@@ -46,7 +46,7 @@ const TitleCard = styled.h2`
 font-size: 3rem;
 
 `
-export  function PokedexPage() {
+export  function PokemonsList() {
 const URL_API1 = "https://pokeapi.co/api/v2";
 const [pokemons, setPokemons] = useState([]);
 const [next, setNext] = useState("");
