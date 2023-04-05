@@ -8,10 +8,9 @@ margin: 0px 2.5%;
 
 min-height: 80px;
 display: flex;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    align-items: flex-start;
-    justify-content: flex-start;
+
+    align-items: center;
+    justify-content: center;
     background: var(--gradient-nav);
     border-radius: 15px;
     -webkit-border-radius: 15px;
@@ -23,18 +22,20 @@ align-self: flex-start;
 `
 
 export const Title = styled.h1`
+position: relative;
 display: flex;
 height: 10vh;
-flex-flow: column wrap;
-width: 60%;
-align-self: flex-start;
-text-align: left;
-justify-content: flex-start;
+flex-flow: row wrap;
+width: 100%;
+align-self: center;
+text-align: flex-end;
+justify-content: center;
 
 `
 export const  HeaderNavImg = styled.img`
 height: 100%;
 object-fit: contain;
-margin-top: auto;
-justify-self: flex-start;
+position: relative;
+margin-top: 10px auto;
+justify-self: center;
 `

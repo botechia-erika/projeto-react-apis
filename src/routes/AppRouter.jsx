@@ -2,7 +2,7 @@ import React from 'react'
 import {useState, useEffect} from 'react'
 import { Routes, Route} from 'react-router-dom'
 import { LandingPage } from './../pages/LandingPage'
-import { List } from '../pages/List'
+import { PokedexList } from '../pages/PokedexList'
 import { DetailsPage } from '../pages/DetailsPage'
 import {PokemonsList} from '../pages/PokemonsList'
 import { Search } from './../pages/Search'
@@ -19,9 +19,10 @@ export function AppRouter() {
    
          <Routes>
 
-    <Route path="/" element={<PokemonsList />}/>
+   
     <Route path="/pokemon/:pokeName" element={<DetailsPage/>} />    
-    <Route path="/pokedex" element={<List/>} />
+    <Route path="/pokedex" element={<PokedexList/>} />
+    <Route index element={<PokemonsList />}/>
     </Routes>    
     </div>
  

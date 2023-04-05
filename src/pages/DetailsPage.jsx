@@ -22,11 +22,10 @@ width: 80%;
 margin-left: 10%;
 `
 const PokeNameTitle = styled.h2`
-position: fixed;
+position: relative;
 top: 10px;
 color: white;
 font-weight: 900;
-left: 50%;
 font-size: 1.9rem;
 z-index: 11;
 margin-right: 2rem;
@@ -108,7 +107,7 @@ const displayInfo = ()=>{
 <Flex height="120px" alignContent={'space-around'}>
   <EnvolveChainBtn>  <Link to={'/pokedex'}>
   MyPokedex</Link></EnvolveChainBtn>
-  <EnvolveChainBtn>  <Link to={'/pokemons'}>
+  <EnvolveChainBtn>  <Link to={'/'}>
   CaçarPokemons</Link></EnvolveChainBtn>
   
   <EnvolveChainBtn>Envolve</EnvolveChainBtn>

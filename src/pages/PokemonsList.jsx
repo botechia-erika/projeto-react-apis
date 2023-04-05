@@ -2,7 +2,7 @@ import {useEffect, useContext, useState} from "react"
 import { Link } from "react-router-dom";
 import { PokedexContext } from './../globals/Context'
 import { PokedexItem } from "./../Components/PokedexItem";
-
+import { Flex } from "@chakra-ui/react";
 import axios from "axios";
 
 import styled from "styled-components";
@@ -17,25 +17,51 @@ width: 500px;
 `
 
 const ListPokedex = styled.li`
-display: inline-block;
+
 padding: 2rem;
-background: #f3f1f1;
-width: 500px;
-height: 560px;
+background: #fdfdfd;
+    display: flex;
+    border-radius: 15px;
+    padding: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    flex-direction: column;
+    margin-bottom: 5rem;
+    margin-right: 5rem;
+    width: 25%;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+min-width: 350px;
+height: 460px;
 
 
 img{
-  max-height: 300px;
-  object-fit: contain;
+  height: 200px;
+    width: 100%;
+    margin-top: 1rem;
+}
+button{
+&&:hover {
+    background: #620404;
+    cursor: pointer;
 }
 
+{
+    background: #ffff00;
+    border: none;
+    border-radius: 5px;
+    border: 2px solid #000000;
+    padding: 1rem;
+    transition: all .1s ease-in-out;
+}
 `
 const ButtonNav4 = styled.button`
 position: fixed;
 z-index:11;
 top: 20px;
 right: 10%;
-background: #f3ff14;
+background: #5292ff;
 height:40px;
 padding: 0.2rem 1rem;
 border: 3px solid black;
@@ -77,8 +103,9 @@ return (
   <div className="App">
                 <ButtonNav4>
 <Link to={'/pokedex'}>
-  MyPokedex</Link></ButtonNav4>
-  <ul>
+  MyPokedéx</Link></ButtonNav4>
+  <Flex as='li' flexFlow={'row wrap'}>
+
     {pokemons.map((pokemon) => pokedex.find((poke)=>poke.data.name == pokemon.data.name)?(
       <ListAll key={pokemon.data.name}>
 <div>
@@ -108,7 +135,8 @@ return (
  </ListPokedex>
       )
     )}
-    </ul>
+ 
+    </Flex>
     <button onClick={() => handlePrevious()}>previous</button>
     <button onClick={() => handleNext()}>next</button>
   </div>
