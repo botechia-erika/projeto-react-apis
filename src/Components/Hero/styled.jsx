@@ -22,9 +22,8 @@ top: 0px;
 right: 10%;
 left: 10%;
 width: 80%;
-bottom:0;
 
-max-height: 100vh;
+max-height:10vh;
 background: #f3ff14;
 height:40px;
 padding: 0.2rem 1rem;

@@ -6,7 +6,7 @@ position: fixed; display: flex;   width: 95%;
 top: 0;
 margin: 0px 2.5%;
 
-min-height: 80px;
+min-height: 70px;
 display: flex;
 
     align-items: center;
@@ -17,7 +17,7 @@ display: flex;
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
-    border: 2px solid rgb(0, 0, 0);
+    border: 2px solid transparent
 align-self: flex-start;
 `
 

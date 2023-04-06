@@ -2,7 +2,7 @@ import {useEffect, useContext, useState} from "react"
 import { Link } from "react-router-dom";
 import { PokedexContext } from './../globals/Context'
 import { PokedexItem } from "./../Components/PokedexItem";
-import { Flex } from "@chakra-ui/react";
+import { Flex, List, ListItem } from "@chakra-ui/react";
 import axios from "axios";
 
 import styled from "styled-components";
@@ -79,6 +79,7 @@ const [next, setNext] = useState("");
 const [previous, setPrevious] = useState("");
 const [pokedexList, setPokedexList] = useState([])
 const {addToPokedex, deletePokemon , pokedex}=useContext(PokedexContext)
+const [typeColor, setTypeColor]=useState("")
 const handleNext = (url) => {
   requestPokemon(next);
 };
@@ -99,6 +100,49 @@ const requestPokemon = async (url) => {
 useEffect(()=>{ 
   requestPokemon(URL_API1 + "/pokemon/");
 }, [])
+
+const getColors= (typeColor) => {
+    switch(typeColor.toUpperCase()) {
+      case "BUG":
+        return "#316520";
+      case "DARK":
+        return "#5C5365";
+      case "DRAGON":
+        return "#0A6CBF";
+      case "ELECTRIC":
+        return "#F4D23B";
+      case "FAIRY":
+        return "#EC8FE6";
+      case "FIGHTING":
+        return "#CE4069";
+      case "FIRE":
+        return "#F44900";
+      case "FLYING":
+        return "#6892B0";
+      case "GHOST":
+        return "#5269AC";
+      case "GRASS":
+        return "#70B873";
+      case "GROUND":
+        return "#D97745";
+      case "ICE":
+        return "#74CEC0";
+      case "NORMAL":
+        return "#8A8A8A";
+      case "POISON":
+        return "#AD61AE";
+      case "PSYCHIC":
+        return "#F67176";
+      case "ROCK":
+        return "#C7B78B";
+      case "STEEL":
+        return "#BBBBBB";
+      case "WATER":
+        return "#33A4F5";
+      default:
+        return "#8A8A8A";
+    }
+  };
 return (
   <div className="App">
                 <ButtonNav4>
@@ -121,7 +165,9 @@ return (
       </ListAll>):
       (         
         <ListPokedex key={pokemon.data.name}>
-        
+        <List color={'red'} bg={'yellow.400'}>{...pokemon.data.types.map((item, indice)=>(
+<span key={indice} bg={getColors(()=>{getColors(item.type.name}>{item.type.name.toUpperCase()}</span>
+      ))}</List>
         <TitleCard>{pokemon.data.name}</TitleCard>
         <img src={pokemon.data.sprites.other['dream_world']['front_default']} width='90%' height='100px' alt="pokemon img"/>        <Link to={'/pokemon/' + pokemon.data.name}>
   INFO</Link>
