@@ -10,7 +10,7 @@ import styled from "styled-components";
 const ListAll = styled.li`
 display: inline-block;
 padding: 2rem;
-background: #f3f1f1;
+background: ${()=>{props.colorType}};
 width: 500px;
 height: 560px;
 
@@ -90,8 +90,8 @@ return (
 <Link to={'/pokedex'}>
   MyPokedex</Link></ButtonNav4>
   <ul>
-    {pokemons.map((pokemon) => pokedex.find((poke)=>poke.data.name == pokemon.data.name)?(
-      <ListAll key={pokemon.data.name}>
+    {pokemons.map((pokemon, indice) => pokedex.find((poke)=>poke.data.name == pokemon.data.name)?(
+      <ListAll key={indice}>
 <div>
       <TitleCard>  {pokemon.data.name}</TitleCard>
           <button onClick={()=>deletePokemon(pokemon)}>delete pokemon</button>          <Link to={'/pokemon/' + pokemon.data.name}
@@ -104,7 +104,7 @@ return (
      </div>
       </ListAll>):
       (         
-        <ListPokedex key={pokemon.data.name}>
+        <ListPokedex key={indice}>
         
         <TitleCard>{pokemon.data.name}</TitleCard>
         <img src={pokemon.data.sprites.other['dream_world']['front_default']} width='90%' height='100px' alt="pokemon img"/>        <Link to={'/pokemon/' + pokemon.data.name}>

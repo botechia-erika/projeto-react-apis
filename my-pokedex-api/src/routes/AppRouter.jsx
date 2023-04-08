@@ -1,6 +1,6 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
-import { Routes, Route} from 'react-router-dom'
+import {  BrowserRouter, Routes, Route} from 'react-router-dom'
 import { PokemonsPage } from './../Pages/PokemonsPage'
 import { DetailsPage } from '../pages/DetailsPage'
 import {PokedexPage} from './../pages/PokedexPage'
@@ -13,7 +13,7 @@ export function AppRouter() {
   const [pokeList, setPokeList] = useState([]) 
 
   return (
-    <div>
+    <BrowserRouter>
    
          <Routes>
 
@@ -23,7 +23,7 @@ export function AppRouter() {
     <Route path="/pokedex/game" element={<GamePage/>} />
     <Route path="/pokedex/battle" element={<BattlePage/>} />
  </Routes>    
-    </div>
+    </BrowserRouter>
  
   )
 }
