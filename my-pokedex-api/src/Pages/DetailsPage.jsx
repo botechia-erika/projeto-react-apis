@@ -21,7 +21,16 @@ align-self: center;
 width: 80%;
 margin-left: 10%;
 `
-
+const PokeNameTitle = styled.h2`
+position: fixed;
+top: 10px;
+color: white;
+font-weight: 900;
+left: 50%;
+font-size: 1.9rem;
+z-index: 11;
+margin-right: 2rem;
+`
 export const DetailsPage = () => {
 const [dataPokemon, setDataPokemon] = useState({})
 const [loader, setLoader] = useState(true)
@@ -35,7 +44,7 @@ const fetchId = async() =>{
 const responseFetch = await axios.get(URL_API_Details + pokeName )
 setNextStage([])
 setDataPokemon(responseFetch)
-console.log(dataPokemon)
+
 setLoader(false)
 }
 
@@ -65,15 +74,16 @@ const displayInfo = ()=>{
   key={dataPokemon.data.id}
 >
   <GridItem colSpan={3} bg='papayawhip'>
+<PokeNameTitle>{dataPokemon.data.name.toUpperCase()}</PokeNameTitle>
 
 
-<ul key={dataPokemon.data.id} w={'90%'}>
+<ul key={dataPokemon.data.id}>
   {dataPokemon.data.stats.map(pokeStat=>(
   <li>
-    <Box width={'80%'}>
+    <Box width={'70%'}>
     {pokeStat.stat.name}: {pokeStat['base_stat']}
   
-    <Progress hasStripe value={pokeStat['base_stat']} w={'60%'} />
+    <Progress hasStripe value={pokeStat['base_stat']} />
   </Box>
   </li>
 ))}  

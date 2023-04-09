@@ -7,7 +7,7 @@ import styled from 'styled-components'
 
 export function SearchClientPage() {
   return (
-    <Container>
+    <>
   <Heading bg="whitesmoke" marginTop={'500px'} p={4} m={'40px auto'}>
     BUSCA FILTRADA!
     </Heading>
@@ -25,6 +25,6 @@ export function SearchClientPage() {
 </Button>
 </Box>
 
-</Container>
+</>
   )
 }

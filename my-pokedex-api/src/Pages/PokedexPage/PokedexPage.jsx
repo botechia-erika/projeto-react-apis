@@ -6,14 +6,15 @@ import { PokedexItem } from "../../Components/PokedexItem";
 import axios from "axios";
 
 import styled from "styled-components";
+import { Image, Box, Container, Flex, Text, Button } from "@chakra-ui/react";
 
-const ListAll = styled.li`
-display: inline-block;
-padding: 2rem;
-background: green;
-color: white; 
-font-size: 2rem;
-width: 500px;
+const ListAll2 = styled.ul`
+display: flex;
+flex-wrap: column wrap;
+width:calc(90vw - 85px);
+height: 100%;
+align-self: flex-end;
+margin-left: 4.5vw;
 `
 const ButtonNav2 = styled.button`
 position: fixed;
@@ -27,22 +28,29 @@ border: 3px solid black;
 border-radius: 14px;
 `
 const ListPokedex = styled.li`
-display: inline-block;
-padding: 2rem;
-background: #f3f1f1;
-width: 500px;
-height: 560px;
-
-
-img{
-  max-height: 300px;
-  object-fit: contain;
-}
+display: flex;
+flex-flow: column wrap;
+width:30%;
+min-width: 310px;
+height: 200px;
+background-color: #f6f8ff;
+box-shadow: #575757 2px 2px 2px 0px;
+box-sizing: border-box;
+font-family: "Poppins", sans-serif;
+align-items: flex-start;
+justify-content: space-around;
+align-self: center;
+padding-top: 6rem;
+border-radius: 25px;
+margin-bottom: 30px;
+margin-top: 120px;
+padding-left: 2rem;
 
 `
 const TitleCard = styled.h2`
-
-font-size: 3rem;
+position: relative;
+top: -100px;
+font-size: 1.3rem;
 
 `
 export  function PokedexPage() {
@@ -59,29 +67,45 @@ useEffect(()=>{
  
 }, [])
 return (
-  <div className="App">
+  <>
+  <Flex flexFlow={'row wrap'} w={'90%'}>
                <ButtonNav2>
 <Link to={'/'}>
   Caçar</Link></ButtonNav2>
-  <ul>
-    {pokedex.map((pokemon) => pokedex.find((poke)=>poke.data.name == pokemon.data.name)?
+  <ListAll2>
+    {pokedex.map((pokemon, indice) => pokedex.find((poke)=>poke.data.name == pokemon.data.name)?
       (         
-        <ListPokedex key={pokemon.data.id}>
-        
+        <ListPokedex key={indice}>
+       
         <TitleCard>{pokemon.data.name}</TitleCard>
-        <img src={pokemon.data.sprites.other['dream_world']['front_default']} width='90%' height='100px' alt="pokemon img"/>  
-        <button onClick={()=>deletePokemon(pokemon)}>delete pokemon</button>     
+         <Flex  flexFlow={'row '} alignSelf={'center'} justifyContent={'space-around'}>
+        <Button onClick={()=>deletePokemon(pokemon)} bg={'red.500'} color={'white'} rounded={'18px'} border={'2px solid black'} margin={'10px auto'}>  
+           DELETAR
+        </Button>   
+        <Button bg={'yellow'} color={'black'} rounded={'18px'} border={'2px solid black'}  margin={'10px auto'}>  
+        <Link to={'/pokemon/'+ pokemon.data.name}>
+     
+           +INFO
+
+
+
+
+          </Link>
+</Button>
+
+  </Flex>
+       
+  <Image src={pokemon.data.sprites.other['dream_world']['front_default']} position={'relative'} width='137px' height='137px' right={'27px'} top={'-117px'} alt="pokemon img"/>  
  </ListPokedex>
       ):
       (
-        <div>
-        <h2>SEM POKEMONS</h2>
-      </div>
+        <span key={indice}></span>
       )
     )}
-    </ul>
-    <button onClick={() => handlePrevious()}>previous</button>
-    <button onClick={() => handleNext()}>next</button>
-  </div>
+    </ListAll2>
+  <Container>    
+</Container>
+  </Flex>  
+</>
 );
 }

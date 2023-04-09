@@ -4,7 +4,6 @@ export function BattlePage(){
     return(
         <>
         <DisplayGame/>
-        
-    </>
+        </>
     )
 }

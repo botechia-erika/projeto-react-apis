@@ -2,7 +2,7 @@ import {useEffect, useContext, useState} from "react"
 import Swal from 'sweetalert2'
 
 import { Link } from "react-router-dom";
-import {Badge, Box, Button, Container, Flex} from '@chakra-ui/react'
+import {Badge, Box, Button, Stack, Flex, Input, FormLabel} from '@chakra-ui/react'
 import axios from "axios";
 
 import styled from "styled-components";
@@ -11,7 +11,8 @@ import { ContainerGame } from "../../Components/DisplayGame/styled";
 import bgSearch from './../../assets/bg/bgSearch.png'
 
 
-
+const ListPoke = styled.ul`
+`
 const ListAll = styled.li`
 display: flex;
 padding: 2rem;
@@ -106,13 +107,13 @@ return (
 
 <Link to={'/pokedex'}>
   MyPokedex</Link></ButtonNav4>
-<Box minH={'500px'} w={'100%'} bg={'darkblue'}>            
-<Flex  bgSize={'cover'} bgPosition={' center'} bgImage={bgSearch} minH={'500px'} alignContent={'center'} alignSelf={'flex-start'}>
+<Box w={'100%'} bg={'darkblue'}>            
+<Flex  bgSize={'cover'} bgPosition={' center'} bgImage={bgSearch} h={'450PX'} alignContent={'center'} alignSelf={'flex-start'}>
 
 </Flex>
 </Box>
-<Flex>
-  <ul>
+<Flex flexFlow={'column wrap'}>
+  <ListPoke>
 
     {pokemons.map((pokemon, indice) => pokedex.find((poke)=>poke.data.name == pokemon.data.name)?(
       <span key={indice}></span>
@@ -159,7 +160,7 @@ handleNext()
 </PokeCard1>
       )
     )}
-    </ul>
+    </ListPoke>
     </Flex>
     <Button onClick={() => handlePrevious()}>previous</Button>
     <Button onClick={() => handleNext()}>next</Button>
