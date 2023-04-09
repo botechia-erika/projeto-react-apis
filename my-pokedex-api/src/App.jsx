@@ -1,26 +1,26 @@
 import React from 'react';
 import { ChakraProvider } from '@chakra-ui/react'
 import  {PokedexProvider}  from './globals/Context';
+import { AppRouter } from './root/AppRouter';
 import {GlobalStyled} from './theme/globalStyled';
-import {HeaderNavbar} from './components/HeaderNavbar/index'
-import { AppRouter } from './routes/AppRouter';
-import './theme/normalize.css'
-function App() {
+import { NavbarComponent } from './Components/Navbar/NavbarComponent';
+
+
+
+export function App() {
   
   
   return ( 
 
   <ChakraProvider>   
   <PokedexProvider>
-<div className='App'>
+    <div className='App'>
     <GlobalStyled/>  
+    <NavbarComponent/>
       <AppRouter/>     
-  <HeaderNavbar/>
-  </div>
-
+      </div>
   </PokedexProvider>  
   </ChakraProvider>
 );
 }
 
-export default App;

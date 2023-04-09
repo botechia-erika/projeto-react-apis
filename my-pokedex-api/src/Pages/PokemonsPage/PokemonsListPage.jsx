@@ -1,16 +1,14 @@
 import {useEffect, useContext, useState} from "react"
+import Swal from 'sweetalert2'
+
 import { Link } from "react-router-dom";
 import {Badge, Box, Button, Flex} from '@chakra-ui/react'
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
-
-import { PokedexContext } from '../globals/Context'
-import { PokedexItem } from "../Components/PokedexItem";
-
 import axios from "axios";
 
 import styled from "styled-components";
-const MySwal = withReactContent(Swal)
+import { PokedexContext } from '../../globals/Context'
+
+
 
 
 const ListAll = styled.li`
@@ -71,12 +69,11 @@ font-size: 3rem;
 
 
 
-export  function PokemonsPage() {
+export  function PokemonsListPage() {
 const URL_API1 = "https://pokeapi.co/api/v2";
 const [pokemons, setPokemons] = useState([]);
 const [next, setNext] = useState("");
 const [previous, setPrevious] = useState("");
-const [pokedexList, setPokedexList] = useState([])
 const {addToPokedex, deletePokemon , pokedex}=useContext(PokedexContext)
 const handleNext = (url) => {
   requestPokemon(next);
@@ -105,12 +102,16 @@ useEffect(()=>{
 return (
   <div className="App">
                 <ButtonNav4>
+
 <Link to={'/pokedex'}>
   MyPokedex</Link></ButtonNav4>
+
+<PokeSearch/>
+
   <ul>
 
     {pokemons.map((pokemon, indice) => pokedex.find((poke)=>poke.data.name == pokemon.data.name)?(
-      <span></span>
+      <span key={indice}></span>
 ):
       (         
 <PokeCard1 key={indice}>

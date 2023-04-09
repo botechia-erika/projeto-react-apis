@@ -4,7 +4,7 @@ import styled from "styled-components"
 export const MenuBox = styled.nav`
 position: fixed; display: flex;   width: 95%;
 top: 0;
-margin: 0px 2.5%;
+margin: auto;
 
 min-height: 80px;
 display: flex;

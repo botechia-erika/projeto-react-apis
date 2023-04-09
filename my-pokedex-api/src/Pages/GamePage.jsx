@@ -7,7 +7,7 @@ const MainShop = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;
+    margin: 30px auto;
 `
 
  const SearchClient = styled.div`

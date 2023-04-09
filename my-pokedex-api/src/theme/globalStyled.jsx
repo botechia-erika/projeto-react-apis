@@ -23,12 +23,19 @@ export const GlobalStyled = createGlobalStyle`
         --bg-All: #5D5D5D;
         --primary-id: #DC0A2D;
         --secondary-id: #F9CF30;
+        
+        // cardColors
+
+        --Bug-Pokemon: #A7B723;
+        --Dark-Pokemon: #75574C
+        --Dragon-Pokemon: 70737FF;
+        --Electric-Pokemon: #F9CF30;      
+        --
         --light-Grass: #729F92;
         --light-Fire: #EAAB7D;
         --light-Water: #33A4F5;
         --light-Bug: #71C3FF;
         --light-Normal: #BF9762;
-        
         --badge-GROUND: #965A00;
         --badge-GHOST: #5A1E64;
         --badge-POISON: #AB00AE;
