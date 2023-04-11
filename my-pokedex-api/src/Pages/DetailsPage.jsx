@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import {useEffect,  useState} from 'react'
-import {Box, Button, ButtonGroup, Progress, Spinner, Badge, Flex} from '@chakra-ui/react' 
+import {Box, Button, ButtonGroup, Progress, Spinner, Badge, Flex, Heading} from '@chakra-ui/react' 
 import {Grid, GridItem } from '@chakra-ui/react'
 import styled from 'styled-components'
 const EnvolveChainBtn= styled.button`
@@ -74,13 +74,27 @@ const displayInfo = ()=>{
   key={dataPokemon.data.id}
 >
   <GridItem colSpan={3} bg='papayawhip'>
-<PokeNameTitle>{dataPokemon.data.name.toUpperCase()}</PokeNameTitle>
 
+<img src={dataPokemon.data.sprites.other['official-artwork']['front_default']} alt="pokemon img"/>  
 
-<ul key={dataPokemon.data.id}>
+  <Flex>{...dataPokemon.data.types.map(typeName=>(
+<Badge  style={{"background": `var(--badge-${typeName.type.name.toUpperCase()})`}}
+              >
+            {typeName.type.name}
+  </Badge> ))}
+  </Flex>
+  <Flex width={'100%'} justifyContent={'space-around'}>
+  <img src={dataPokemon.data.sprites.versions['generation-v']['black-white']['animated']['front_default']} alt="pokemon img"/>  
+  <img src={dataPokemon.data.sprites.versions['generation-v']['black-white']['animated']['back_default']} alt="pokemon img"/>  
+  </Flex>
+    </GridItem>
+  <GridItem colSpan={3} minW={'200px'} bg='papayawhip' >
+  <Heading>{dataPokemon.data.name.toUpperCase()}</Heading>
+
+  <ul key={dataPokemon.data.id}>
   {dataPokemon.data.stats.map(pokeStat=>(
   <li>
-    <Box width={'70%'}>
+    <Box width={'150px'}>
     {pokeStat.stat.name}: {pokeStat['base_stat']}
   
     <Progress hasStripe value={pokeStat['base_stat']} />
@@ -88,20 +102,7 @@ const displayInfo = ()=>{
   </li>
 ))}  
   </ul>
-
-    </GridItem>
-  <GridItem colSpan={3} bg='papayawhip' >
-  <Img1 src={dataPokemon.data.sprites.other['dream_world']['front_default']} alt="pokemon img"/>  
-  <ul>{...dataPokemon.data.types.map(typeName=>(
-<li         style={{"background": `var(--badge-${typeName.type.name.toUpperCase()})`}}
-              >
-            {typeName.type.name}
-  </li> ))}
-  </ul>
-  <Flex width={'100%'} justifyContent={'space-around'}>
-  <img src={dataPokemon.data.sprites.versions['generation-v']['black-white']['animated']['front_default']} alt="pokemon img"/>  
-  <img src={dataPokemon.data.sprites.versions['generation-v']['black-white']['animated']['back_default']} alt="pokemon img"/>  
-  </Flex>
+  
     </GridItem>
  
   <GridItem colSpan={6} height="90px" bg='#1c0236' >
