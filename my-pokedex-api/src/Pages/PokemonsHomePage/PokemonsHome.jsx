@@ -153,8 +153,8 @@ pokemons.map.filter(pokeNext=>{
 })
 handleNext()
 }
-}>CAPTURE</Button>
-<Link to={`/pokemon/${pokemon.data.name}`}>DETAILS</Link>
+}>CAPTURAR</Button>
+<Link to={`/pokemon/${pokemon.data.name}`}>+INFO</Link>
 </Flex>
 </Box>
 </PokeCard1>
@@ -162,8 +162,8 @@ handleNext()
     )}
     </ListPoke>
     </Flex>
-    <Button onClick={() => handlePrevious()}>previous</Button>
-    <Button onClick={() => handleNext()}>next</Button>
+    <Button onClick={() => handlePrevious()} bg={'red.300'}> PAGINA ANTERIOR</Button>
+    <Button onClick={() => handleNext()} bg={'green.300'}>PROXIMA PAGINA</Button>
   </div>
 );
 }

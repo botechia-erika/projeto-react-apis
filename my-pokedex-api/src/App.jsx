@@ -4,7 +4,7 @@ import  {PokedexProvider}  from './globals/Context';
 import { AppRouter } from './root/AppRouter';
 import {GlobalStyled} from './theme/globalStyled';
 import { NavbarComponent } from './Components/Navbar/NavbarComponent';
-
+import './theme/normalize.css'
 
 
 export function App() {
