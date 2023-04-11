@@ -1,5 +1,4 @@
-## DEPLOY ATUALIZADO  https://my-poke-api-v2.surge.sh
-## DEPLOY V1 https://my-poke-api-conway.surge.sh/
+
 # **Projeto React e API's**
 O Projeto React e APIs é um site de pokémons que possui três páginas: Home, Pokedex e Detalhes. O projeto está subdivido em temas de acordo com os conteúdos que estudado durante o Módulo 2 - Frontend.
 
