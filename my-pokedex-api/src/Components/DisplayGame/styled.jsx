@@ -2,7 +2,7 @@ import styled from 'styled-components'
 export const ContainerGame = styled.div`
 position: absolute;
 z-index: 0;
-    margin: 30px auto;
+    margin: 0;
     padding: 0;
     min-width: 90vw;
     min-height: 85vh;

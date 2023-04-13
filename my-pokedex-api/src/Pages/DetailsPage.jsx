@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import {useEffect,  useState} from 'react'
-import {Box, Button, ButtonGroup, Progress, Spinner, Badge, Flex, Heading, Container} from '@chakra-ui/react' 
+import {Box, Button, ButtonGroup, Progress, Spinner, Badge, Flex} from '@chakra-ui/react' 
 import {Grid, GridItem } from '@chakra-ui/react'
 import styled from 'styled-components'
 const EnvolveChainBtn= styled.button`
@@ -60,25 +60,74 @@ const displayInfo = ()=>{
 }
   return (
 
-    <>
+    <div>
         {
         !loader ? ( 
           
 
-
 <Grid
-  h="85vh"
-  w={'100%'}
-  templateRows="repeat(2, 1fr)"
-  templateColumns="repeat(5, 1fr)"
-  gap={4}
+  maxH='75vh'
+  templateRows='repeat( 1fr)'
+  templateColumns='repeat(5, 1fr)'
+  gap={3}
+  p={2}
   key={dataPokemon.data.id}
-  >
+>
+  <GridItem colSpan={3} bg='papayawhip'>
+<PokeNameTitle>{dataPokemon.data.name.toUpperCase()}</PokeNameTitle>
 
-  <GridItem rowSpan={2} colSpan={1} bg="tomato" />
-  <GridItem colSpan={2} bg="papayawhip" />
-  <GridItem colSpan={2} bg="papayawhip" />
-  <GridItem colSpan={4} bg="tomato" />
+
+<ul key={dataPokemon.data.id}>
+  {dataPokemon.data.stats.map(pokeStat=>(
+  <li>
+    <Box width={'70%'}>
+    {pokeStat.stat.name}: {pokeStat['base_stat']}
+  
+    <Progress hasStripe value={pokeStat['base_stat']} />
+  </Box>
+  </li>
+))}  
+  </ul>
+
+    </GridItem>
+  <GridItem colSpan={3} bg='papayawhip' >
+  <Img1 src={dataPokemon.data.sprites.other['dream_world']['front_default']} alt="pokemon img"/>  
+  <ul>{...dataPokemon.data.types.map(typeName=>(
+<li         style={{"background": `var(--badge-${typeName.type.name.toUpperCase()})`}}
+              >
+            {typeName.type.name}
+  </li> ))}
+  </ul>
+  <Flex width={'100%'} justifyContent={'space-around'}>
+  <img src={dataPokemon.data.sprites.versions['generation-v']['black-white']['animated']['front_default']} alt="pokemon img"/>  
+  <img src={dataPokemon.data.sprites.versions['generation-v']['black-white']['animated']['back_default']} alt="pokemon img"/>  
+  </Flex>
+    </GridItem>
+ 
+  <GridItem colSpan={6} height="90px" bg='#1c0236' >
+<Flex height="120px" alignContent={'space-around'}>
+  <EnvolveChainBtn>  <Link to={'/pokedex'}>
+  MyPokedex</Link></EnvolveChainBtn>
+  <EnvolveChainBtn>  <Link to={'/'}>
+  CaçarPokemons</Link></EnvolveChainBtn>
+  
+  <EnvolveChainBtn>Envolve</EnvolveChainBtn>
+
+ 
+
+  </Flex>
+  
+<Flex>
+<Box overflow={'scroll'}>{dataPokemon.data.moves.map(moveTypes=>(
+      <Badge bg={'#707070'} m={'15px'} border={'2px solid #0c0801'}
+         key={moveTypes.move.url} color={'white'} p={'5px'}>{moveTypes.move.name}</Badge>
+        ))}
+      </Box>
+
+</Flex>
+  
+    </GridItem>
+ 
 </Grid>
 
             )
@@ -93,6 +142,6 @@ const displayInfo = ()=>{
             />
             )
         }
-    </>
+    </div>
   )
 }
