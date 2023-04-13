@@ -156,8 +156,8 @@ handleNext()
       )
     )}
     </ul>
-    <Button onClick={() => handlePrevious()}>PROXIMA PAGINA</Button>
-    <Button onClick={() => handleNext()}>PAGINA ANTERIOR</Button>
+    <Button onClick={() => handlePrevious()}>previous</Button>
+    <Button onClick={() => handleNext()}>next</Button>
   </div>
 );
 }
