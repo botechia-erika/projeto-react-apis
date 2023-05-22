@@ -3,6 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "Version": "23d374d",
+  "Environment": "production",
+  "Sandbox": "cy13db",
+  "Pitcher": "0.274.0",
+  "Manager": "1.21.0",
+  "Cluster": "fc-us-0",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
